@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#EAE1D0] shadow-xs transition-all w-full">
+    <header className="bg-white/95 backdrop-blur-md border-b border-[#EAE1D0] shadow-xs transition-all w-full">
       {/* 1. Top Announcement & Support Bar */}
       <div className="bg-[#103C26] text-[#FAF7F0] py-2 px-4 sm:px-8 text-[11px] sm:text-xs font-serif border-b border-[#C69D32]/30">
         <div className="max-w-9xl mx-auto flex items-center justify-between gap-4 px-3 sm:px-6 lg:px-10">

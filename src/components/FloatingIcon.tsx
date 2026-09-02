@@ -63,7 +63,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+      <div className="fixed bottom-6 right-6 z-[60] flex items-center gap-3">
         
         {/* Floating Tooltip Pill (Desktop) */}
         {!isOpen && (
@@ -100,7 +100,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
 
       {/* WhatsApp Modal / Quick Order Card */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-96 max-w-sm bg-[#FAF7F0] rounded-3xl shadow-2xl border border-[#EAE1D0] overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-24 right-4 sm:right-6 z-[60] w-[calc(100vw-2rem)] sm:w-96 max-w-sm bg-[#FAF7F0] rounded-3xl shadow-2xl border border-[#EAE1D0] overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
           
           {/* Header */}
           <div className="bg-[#103C26] p-4 sm:p-5 text-white flex items-center justify-between border-b border-[#C69D32]/40">

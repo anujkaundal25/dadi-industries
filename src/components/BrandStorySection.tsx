@@ -89,7 +89,7 @@ export const BrandStorySection: React.FC = () => {
               {/* Primary Background Image */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-[#F3ECE0]">
                 <img
-                  src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1000&q=80"
+                  src="/home/ingredients.webp"
                   alt="Authentic Indian Spices and Traditional Kitchen Ingredients"
                   className="w-full h-full object-cover"
                 />
@@ -107,7 +107,7 @@ export const BrandStorySection: React.FC = () => {
               </div>
 
               {/* Floating Quality Seal */}
-              <div className="absolute -top-8 -left-12 border-l-2 border-t-2 border-[#103c26] bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3">
+              <div className="lg:absolute mt-5 -top-8 -left-12 border-l-2 border-t-2 border-[#103c26] bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-[#103C26] text-[#E8C86A] flex items-center justify-center text-xl font-serif font-bold">
                   DI
                 </div>

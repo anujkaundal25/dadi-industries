@@ -45,7 +45,7 @@ export const CartDrawer: React.FC = () => {
 
   const handleStartShopping = () => {
     setIsCartOpen(false);
-    setCurrentView('shop');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

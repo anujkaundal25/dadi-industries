@@ -29,7 +29,7 @@ export default function Marquees() {
             <span className="transition-colors duration-300 group-hover:text-[#E8C86A]">
               {item}
             </span>
-            <span className="text-[#E8C86A] text-xs select-none opacity-80">
+            <span className="text-[#E8C86A] text-lg select-none opacity-80">
               ✦
             </span>
           </span>

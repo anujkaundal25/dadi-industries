@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
 
   const handleShopAchaar = () => {
     setSelectedCategory('all');
-    setCurrentView('shop');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleExploreRange = () => {

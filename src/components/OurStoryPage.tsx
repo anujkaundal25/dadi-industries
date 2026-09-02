@@ -335,7 +335,7 @@ export const OurStoryPage: React.FC = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
-              onClick={() => setCurrentView('shop')}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="bg-[#C69D32] hover:bg-[#E8C86A] text-[#0B2819] px-8 py-4 rounded-full font-serif font-bold text-sm sm:text-base transition-all shadow-lg active:scale-95 cursor-pointer flex items-center gap-2"
             >
               <span>Explore All Handcrafted Pickles</span>

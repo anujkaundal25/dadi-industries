@@ -82,11 +82,11 @@ export const ProductDetailPage: React.FC = () => {
         {/* Back Navigation Bar */}
         <div className="mb-6 flex items-center justify-between">
           <button
-            onClick={() => setCurrentView('shop')}
+            onClick={() => setCurrentView('home')}
             className="inline-flex items-center gap-2 text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors py-1.5 px-3 rounded-lg hover:bg-white border border-transparent hover:border-[#EAE1D0] cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to All Flavours</span>
+            <span>Back to Home</span>
           </button>
 
           <button
@@ -480,10 +480,10 @@ export const ProductDetailPage: React.FC = () => {
               </div>
 
               <button
-                onClick={() => setCurrentView('shop')}
+                onClick={() => setCurrentView('home')}
                 className="text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors cursor-pointer"
               >
-                View Full Range →
+                Back to Home →
               </button>
             </div>
 

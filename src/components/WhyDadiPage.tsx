@@ -46,7 +46,7 @@ export const WhyDadiPage: React.FC = () => {
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#103C26] tracking-tight">
             Why Choose Dadi Industries?
           </h1>
-          <p className="text-base sm:text-lg text-[#5E6E64] leading-relaxed font-sans">
+          <p className="text-base sm:text-xl text-[#5E6E64] leading-relaxed font-sans">
             In an era of mass-manufactured chemical shortcuts, we take the long, traditional path. 
             Here is why families trust Dadi Industries for authentic home meals.
           </p>
@@ -74,16 +74,16 @@ export const WhyDadiPage: React.FC = () => {
                 <div className="md:col-span-4 bg-[#103C26]/5 p-3.5 rounded-xl border border-[#103C26]/20 flex items-start gap-2.5">
                   <CheckCircle2 className="w-5 h-5 text-[#2F7A52] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-serif font-bold uppercase tracking-wider text-[#103C26] block">Dadi Industries</span>
-                    <p className="text-xs font-medium text-[#14241B] mt-0.5 font-sans">{item.dadi}</p>
+                    <span className="text-[16px] font-serif font-bold uppercase tracking-wider text-[#103C26] block">Dadi Industries</span>
+                    <p className="text-[15px] font-medium text-[#14241B] mt-0.5 font-sans">{item.dadi}</p>
                   </div>
                 </div>
 
                 <div className="md:col-span-4 bg-rose-50/50 p-3.5 rounded-xl border border-rose-200 flex items-start gap-2.5">
                   <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-serif font-bold uppercase tracking-wider text-rose-800 block">Commercial Brands</span>
-                    <p className="text-xs text-[#5E6E64] mt-0.5 font-sans">{item.commercial}</p>
+                    <span className="text-[16px] font-serif font-bold uppercase tracking-wider text-rose-800 block">Commercial Brands</span>
+                    <p className="text-[15px] text-[#5E6E64] mt-0.5 font-sans">{item.commercial}</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export const WhyDadiPage: React.FC = () => {
               <Leaf className="w-6 h-6" />
             </div>
             <h3 className="font-serif font-bold text-xl text-[#103C26]">Direct Farmer Partnerships</h3>
-            <p className="text-sm text-[#5E6E64] leading-relaxed font-sans">
+            <p className="text-lg text-[#5E6E64] leading-relaxed font-sans">
               We procure seasonal Ramkela raw mangoes, Guntur red chillies, and mountain lemons directly from certified regional grower networks.
             </p>
           </div>
@@ -108,7 +108,7 @@ export const WhyDadiPage: React.FC = () => {
               <Sun className="w-6 h-6" />
             </div>
             <h3 className="font-serif font-bold text-xl text-[#103C26]">Slow-Crafted Sun Maturation</h3>
-            <p className="text-sm text-[#5E6E64] leading-relaxed font-sans">
+            <p className="text-lg text-[#5E6E64] leading-relaxed font-sans">
               No artificial heating chambers. We preserve the centuries-old art of sun-drying and jar aging to let spices blossom naturally.
             </p>
           </div>
@@ -117,7 +117,7 @@ export const WhyDadiPage: React.FC = () => {
         {/* Bottom CTA */}
         <div className="text-center pt-4">
           <button
-            onClick={() => setCurrentView('shop')}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="inline-flex items-center gap-3 bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-8 py-4 rounded-full font-serif font-bold text-base transition-all shadow-lg active:scale-95 border border-[#C69D32]/40 cursor-pointer"
           >
             <span>Explore All Traditional Pickles</span>

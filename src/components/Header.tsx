@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useShop } from '../context/ShopContext';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { createWhatsAppInquiryUrl, openWhatsApp, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
@@ -22,12 +22,10 @@ export const Header: React.FC = () => {
     currentView,
     setCurrentView,
     cartItemCount,
-    subtotal,
     setIsCartOpen,
     wishlist,
     setIsWishlistOpen,
     setIsSearchOpen,
-    setSelectedCategory,
     user,
     openAuthModal,
     signOut,
@@ -36,24 +34,33 @@ export const Header: React.FC = () => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const navLinks = [
-    { label: 'Home', view: 'home' as const },
-    {
-      label: 'Shop Pickles',
-      view: 'shop' as const,
-      onClick: () => {
-        setSelectedCategory('all');
-        setCurrentView('shop');
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setUserDropdownOpen(false);
       }
-    },
-    { label: 'Our Story', view: 'story' as const },
-    { label: 'Why Dadi', view: 'why-dadi' as const },
-    { label: 'Contact', view: 'contact' as const }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const navLinks: Array<{
+    label: string;
+    view: 'home' | 'story' | 'why-dadi' | 'contact';
+    onClick?: () => void;
+  }> = [
+    { label: 'Home', view: 'home' },
+    { label: 'Shop Pickles', view: '#' },
+    { label: 'Our Story', view: 'story' },
+    { label: 'Why Dadi', view: 'why-dadi' },
+    { label: 'Contact', view: 'contact' }
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#EAE1D0] shadow-xs transition-all w-full overflow-x-hidden">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#EAE1D0] shadow-xs transition-all w-full">
       
       {/* 1. Top Announcement & Support Bar */}
       <div className="bg-[#103C26] text-[#FAF7F0] py-2 px-4 sm:px-8 text-[11px] sm:text-xs font-serif border-b border-[#C69D32]/30">
@@ -102,11 +109,11 @@ export const Header: React.FC = () => {
       </div>
 
       {/* 2. Main High-Craft Brand Row */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-3 sm:px-6 lg:px-18">
         <div className="flex items-center justify-between h-20 sm:h-22 gap-2 sm:gap-4">
           
           {/* Left Navigation (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium font-sans">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-lg font-medium font-sans">
             {navLinks.map(link => {
               const isActive = currentView === link.view;
               return (
@@ -134,15 +141,15 @@ export const Header: React.FC = () => {
             })}
           </nav>
 
-          {/* Center Brand Identity (Logo) */}
+          {/* Center Brand Identity (Logo) - Increased Size */}
           <div 
             onClick={() => setCurrentView('home')}
             className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-95 text-center flex-shrink-0"
           >
             <img src="/logo.png" alt="Namaste Dadi Industries Logo" 
-              height={45}
-              width={80}
-              className="sm:w-[90px] sm:h-[50px] object-contain"
+              height={85}
+              width={170}
+              className="w-[160px] h-[80px] sm:w-[180px] sm:h-[90px] object-contain"
             />
           </div>
 
@@ -175,7 +182,7 @@ export const Header: React.FC = () => {
             </button>
 
             {/* User Account (Desktop Only) */}
-            <div className="relative hidden md:block">
+            <div className="relative hidden md:block" ref={dropdownRef}>
               {user ? (
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
@@ -211,8 +218,7 @@ export const Header: React.FC = () => {
               {/* User Dropdown Menu */}
               {userDropdownOpen && user && (
                 <div 
-                  className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-[#EAE1D0] py-2 z-50"
-                  onClick={() => setUserDropdownOpen(false)}
+                  className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-[#EAE1D0] py-2 z-[9999]"
                 >
                   <div className="px-4 py-3 border-b border-[#EAE1D0] bg-[#FAF7F0]/60">
                     <span className="text-[10px] font-serif uppercase tracking-widest text-[#C69D32] font-bold block">
@@ -224,7 +230,10 @@ export const Header: React.FC = () => {
 
                   <div className="py-1">
                     <button
-                      onClick={() => setCurrentView('account')}
+                      onClick={() => {
+                        setCurrentView('account');
+                        setUserDropdownOpen(false);
+                      }}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
                     >
                       <Package className="w-4 h-4 text-[#C69D32]" />
@@ -232,7 +241,10 @@ export const Header: React.FC = () => {
                     </button>
 
                     <button
-                      onClick={() => setCurrentView('account')}
+                      onClick={() => {
+                        setCurrentView('account');
+                        setUserDropdownOpen(false);
+                      }}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
                     >
                       <User className="w-4 h-4 text-[#103C26]" />
@@ -242,7 +254,10 @@ export const Header: React.FC = () => {
 
                   <div className="border-t border-[#EAE1D0] pt-1">
                     <button
-                      onClick={signOut}
+                      onClick={() => {
+                        signOut();
+                        setUserDropdownOpen(false);
+                      }}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-semibold text-red-700 hover:bg-red-50 text-left cursor-pointer"
                     >
                       <LogOut className="w-4 h-4" />
@@ -253,20 +268,19 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Shopping Cart Pill Button */}
+            {/* Shopping Cart Icon Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-1.5 sm:gap-2 bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-3 sm:px-4 py-2 rounded-full transition-all shadow-md active:scale-95 border border-[#C69D32]/50 cursor-pointer"
+              className="relative p-2.5 sm:px-3.5 sm:py-2 bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] rounded-full transition-all shadow-md active:scale-95 border border-[#C69D32]/50 cursor-pointer flex items-center justify-center"
               aria-label="Shopping Cart"
+              title="Shopping Cart"
             >
-              <ShoppingBag className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#E8C86A]" />
-              <div className="hidden sm:flex flex-col text-left leading-tight">
-                <span className="text-[10px] text-[#E8C86A] uppercase font-bold tracking-wider font-serif">Cart</span>
-                <span className="text-xs font-bold font-serif">₹{subtotal}</span>
-              </div>
-              <span className="bg-[#C69D32] text-[#0B2819] text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-full shadow-xs">
-                {cartItemCount}
-              </span>
+              <ShoppingBag className="w-5 h-5 text-[#E8C86A]" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#C69D32] text-[#0B2819] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                  {cartItemCount}
+                </span>
+              )}
             </button>
 
             {/* Mobile Hamburger Menu Toggle */}

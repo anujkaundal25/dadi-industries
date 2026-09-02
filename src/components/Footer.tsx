@@ -11,12 +11,6 @@ export const Footer: React.FC = () => {
 
   const address = "Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001, India";
 
-  const handleCategoryNav = (categoryId: string) => {
-    setSelectedCategory(categoryId);
-    setCurrentView('shop');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handlePageNav = (view: 'home' | 'shop' | 'story' | 'why-dadi' | 'contact') => {
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -35,10 +29,9 @@ export const Footer: React.FC = () => {
               {/* <Logo variant="dark" size="lg" /> */}
               <img src="/footer-logo.jpeg" alt="Dadi Industries Logo" 
               height={50}
-              width={100}
-              className='rounded-lg' />
+              width={100} />
             </div>
-            <p className="text-sm text-[#A8BDB1] leading-relaxed max-w-sm font-sans">
+            <p className="text-[16px] text-[#A8BDB1] leading-relaxed max-w-sm font-sans">
               Handcrafted traditional Indian pickles, sun-cured in earthen martabans using pure cold-pressed mustard oil, aromatic hand-ground spices, and the timeless heritage of grandmother's kitchen.
             </p>
             <div className="flex items-center gap-3 pt-2">
@@ -74,31 +67,21 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif font-bold text-base text-[#FAF7F0] tracking-wide">
               Shop Flavours
             </h4>
-            <ul className="space-y-2 text-sm font-sans">
+            <ul className="space-y-2 text-sm font-sans text-[#C8D6CD]">
               <li>
-                <button onClick={() => handleCategoryNav('mango')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Mango Achaar
-                </button>
+                <span>Mango Achaar</span>
               </li>
               <li>
-                <button onClick={() => handleCategoryNav('lemon')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Lemon Achaar
-                </button>
+                <span>Lemon Achaar</span>
               </li>
               <li>
-                <button onClick={() => handleCategoryNav('chilli')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Banarasi Chilli
-                </button>
+                <span>Banarasi Chilli</span>
               </li>
               <li>
-                <button onClick={() => handleCategoryNav('mixed')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Mixed Heritage
-                </button>
+                <span>Mixed Heritage</span>
               </li>
               <li>
-                <button onClick={() => handleCategoryNav('chutney_masala')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Chutneys & Masala
-                </button>
+                <span>Chutneys & Masala</span>
               </li>
             </ul>
           </div>

@@ -65,7 +65,7 @@ export const WhyDadiSection: React.FC = () => {
                   <h3 className="font-serif font-bold text-lg text-[#103C26] mb-2">
                     {feat.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5E6E64] leading-relaxed font-sans">
+                  <p className="text-xs sm:text-base text-[#5E6E64] leading-relaxed font-sans">
                     {feat.description}
                   </p>
                 </div>

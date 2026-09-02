@@ -11,7 +11,7 @@ export const BestsellersSection: React.FC = () => {
 
   const handleViewAll = () => {
     setSelectedCategory('all');
-    setCurrentView('shop');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

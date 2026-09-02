@@ -15,10 +15,10 @@ export const OrderTrackingPage: React.FC = () => {
           <h2 className="font-serif font-bold text-2xl text-[#103C26]">No Active Order Found</h2>
           <p className="text-xs text-[#5E6E64] font-sans">Explore our traditional pickles and place an order to track it live here.</p>
           <button
-            onClick={() => setCurrentView('shop')}
+            onClick={() => setCurrentView('home')}
             className="bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-6 py-2.5 rounded-full text-xs font-serif font-bold cursor-pointer border border-[#C69D32]/40"
           >
-            Explore Pantry
+            Return Home
           </button>
         </div>
       </div>
@@ -161,10 +161,10 @@ export const OrderTrackingPage: React.FC = () => {
             </div>
 
             <button
-              onClick={() => setCurrentView('shop')}
+              onClick={() => setCurrentView('home')}
               className="w-full flex items-center justify-center gap-2 bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] py-3.5 px-6 rounded-2xl font-serif font-bold text-sm transition-all shadow-md active:scale-95 cursor-pointer border border-[#C69D32]/40"
             >
-              <span>Explore More Traditional Pickles</span>
+              <span>Back to Home</span>
               <ArrowRight className="w-4 h-4 text-[#E8C86A]" />
             </button>
           </div>

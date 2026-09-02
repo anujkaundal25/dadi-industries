@@ -216,10 +216,10 @@ export const AccountPage: React.FC = () => {
                 </p>
               </div>
               <button
-                onClick={() => setCurrentView('shop')}
+                onClick={() => setCurrentView('home')}
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-serif font-bold text-[#103C26] hover:underline"
               >
-                <span>Browse New Flavours</span>
+                <span>Return Home</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#C69D32]" />
               </button>
             </div>
@@ -232,10 +232,10 @@ export const AccountPage: React.FC = () => {
                   Your kitchen pantry is missing the authentic taste of Dadi’s sun-cured pickles. Place your first order with free delivery above ₹499!
                 </p>
                 <button
-                  onClick={() => setCurrentView('shop')}
+                  onClick={() => setCurrentView('home')}
                   className="inline-flex items-center gap-2 bg-[#103C26] text-[#FAF7F0] px-6 py-3 rounded-full font-serif font-bold text-xs shadow-md"
                 >
-                  <span>Explore Heritage Pickles</span>
+                  <span>Return to Home</span>
                   <ArrowRight className="w-4 h-4 text-[#E8C86A]" />
                 </button>
               </div>

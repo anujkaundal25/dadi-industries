@@ -43,7 +43,7 @@ export const ContactPage: React.FC = () => {
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#103C26] tracking-tight">
             Baat Kijiye, Dadi Ke Ghar Ki Tarah
           </h1>
-          <p className="text-sm sm:text-base text-[#5E6E64] max-w-xl mx-auto font-sans">
+          <p className="text-sm sm:text-xl text-[#5E6E64] max-w-xl mx-auto font-sans">
             Have questions about our pickles, bulk wholesale orders, or need help with a delivery? Reach out to our family team anytime.
           </p>
         </div>

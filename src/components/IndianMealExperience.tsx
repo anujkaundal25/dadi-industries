@@ -13,7 +13,7 @@ export const IndianMealExperience: React.FC = () => {
       tag: "Breakfast Classic",
       pairWith: "Dadi's Special Mango Achaar",
       desc: "Crisp golden aloo or gobhi parathas served with a dollop of fresh white butter and a spoonful of tangy sun-cured mango pickle.",
-      image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80",
+      image: "/home/indian-tradition-1.webp",
       categoryId: "mango"
     },
     {
@@ -21,7 +21,7 @@ export const IndianMealExperience: React.FC = () => {
       tag: "Lunch Staple",
       pairWith: "Digestive Lemon & Green Chilli Achaar",
       desc: "Steaming hot basmati rice with fragrant arhar dal, desi ghee, roasted papad, and digestive sun-ripened nimbu pickle.",
-      image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=800&q=80",
+      image: "/home/indian-tradition-2.webp",
       categoryId: "lemon"
     },
     {
@@ -29,7 +29,7 @@ export const IndianMealExperience: React.FC = () => {
       tag: "Cozy Dinners",
       pairWith: "Banarasi Stuffed Red Chilli Achaar",
       desc: "Khichdi ke chaar yaar: dahi, papad, ghee aur Dadi ka chatpata hand-stuffed Banarasi Lal Mirch achaar.",
-      image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=800&q=80",
+      image: "/home/indian-tradition-3.webp",
       categoryId: "chilli"
     },
     {
@@ -37,7 +37,7 @@ export const IndianMealExperience: React.FC = () => {
       tag: "Travel Favorite",
       pairWith: "Sweet & Sour Mango Chunda",
       desc: "Soft Gujarati methi theplas layered with golden jaggery-infused mango chunda — the ultimate nostalgic on-the-go meal.",
-      image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80",
+      image: "/home/indian-tradition-4.webp",
       categoryId: "mango"
     }
   ];
@@ -116,7 +116,7 @@ export const IndianMealExperience: React.FC = () => {
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#103C26] mt-1">
                   {mealPairings[activeMeal].pairWith}
                 </h3>
-                <p className="text-sm text-[#5E6E64] mt-2 leading-relaxed font-sans">
+                <p className="text-lg text-[#5E6E64] mt-2 leading-relaxed font-sans">
                   {mealPairings[activeMeal].desc}
                 </p>
 
@@ -127,7 +127,7 @@ export const IndianMealExperience: React.FC = () => {
                   <button
                     onClick={() => {
                       setSelectedCategory(mealPairings[activeMeal].categoryId);
-                      setCurrentView('shop');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="flex items-center gap-2 text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors"
                   >

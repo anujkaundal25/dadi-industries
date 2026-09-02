@@ -59,7 +59,7 @@ export const WishlistDrawer: React.FC = () => {
                 <button
                   onClick={() => {
                     setIsWishlistOpen(false);
-                    setCurrentView('shop');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className="bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] text-xs font-serif font-bold px-6 py-2.5 rounded-full transition-colors cursor-pointer border border-[#C69D32]/40"
                 >

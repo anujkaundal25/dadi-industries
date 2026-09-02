@@ -131,28 +131,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
 
           <div className="p-4 sm:p-5 space-y-4 max-h-[75vh] overflow-y-auto font-sans">
             
-            {/* Cart Order Quick Action (If cart has items) */}
-            {cart.length > 0 && (
-              <div className="bg-white p-3.5 rounded-2xl border-2 border-[#103C26] shadow-xs space-y-2">
-                {/* <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-serif font-bold uppercase tracking-wider text-[#103C26] flex items-center gap-1.5">
-                    <ShoppingBag className="w-3.5 h-3.5 text-[#C69D32]" />
-                    Ready Cart Order
-                  </span>
-                  <span className="text-xs font-serif font-bold text-[#103C26]">₹{totalAmount}</span>
-                </div> */}
-                <p className="text-[11px] text-[#5E6E64]">
-                  Order your {cart.length} item{cart.length > 1 ? 's' : ''} directly with full address via WhatsApp.
-                </p>
-                <button
-                  onClick={handleOrderCartOnWhatsApp}
-                  className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white py-2.5 px-4 rounded-xl font-serif font-bold text-xs shadow-md transition-all active:scale-95 cursor-pointer"
-                >
-                  <WhatsAppIcon className="w-4 h-4" />
-                  <span>Send Cart Order on WhatsApp (₹{totalAmount})</span>
-                </button>
-              </div>
-            )}
+          
 
             {/* Quick 1-Tap Bestseller Order */}
             <div className="space-y-2">

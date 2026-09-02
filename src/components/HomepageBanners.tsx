@@ -120,21 +120,21 @@ export const HomepageBanners: React.FC = () => {
         ))}
 
         {/* Carousel Navigation Arrows */}
-        <button
+        {/* <button
           onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSliderBanners.length - 1 : prev - 1))}
           className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-sm border border-white/20 transition-all cursor-pointer shadow-md"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
-        </button>
+        </button> */}
 
-        <button
+        {/* <button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSliderBanners.length)}
           className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-sm border border-white/20 transition-all cursor-pointer shadow-md"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
-        </button>
+        </button> */}
 
         {/* Indicator Dots */}
         <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
@@ -179,10 +179,10 @@ export const HomepageBanners: React.FC = () => {
               Whether it’s hot ghee aloo parathas, comforting dal chawal, or evening khichdi — a single spoon elevates ordinary meals to a royal feast.
             </p>
             <button
-              onClick={() => {
-                setSelectedCategory('all');
-                setCurrentView('shop');
-              }}
+              // onClick={() => {
+              //   setSelectedCategory('all');
+              //   setCurrentView('shop');
+              // }}
               className="inline-flex items-center gap-2.5 text-sm sm:text-base font-serif font-bold text-[#E8C86A] group-hover:text-white transition-colors cursor-pointer pt-1"
             >
               <span>Explore All 12 Flavours</span>
@@ -245,10 +245,10 @@ export const HomepageBanners: React.FC = () => {
 
           <div className="flex items-center shrink-0">
             <button
-              onClick={() => {
-                setSelectedCategory('all');
-                setCurrentView('shop');
-              }}
+              // onClick={() => {
+              //   setSelectedCategory('all');
+              //   setCurrentView('shop');
+              // }}
               className="w-full md:w-auto bg-[#C69D32] hover:bg-[#E8C86A] text-[#0B2819] px-8 py-4 rounded-full font-serif font-bold text-sm sm:text-base transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2.5"
             >
               <span>Shop Now with Code</span>

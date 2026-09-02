@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
 import AppShell from './AppShell';
-
 export const metadata: Metadata = {
   title: 'Dadi Industries | Ghar Ka Swaad, Authentic Indian Achaar & Pickles',
   description:

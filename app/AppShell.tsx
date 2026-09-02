@@ -12,6 +12,7 @@ import { SearchModal } from '@/src/components/SearchModal';
 import { CheckoutModal } from '@/src/components/CheckoutModal';
 import { AuthModal } from '@/src/components/AuthModal';
 import { ToastContainer } from '@/src/components/Toast';
+import { WhatsAppFloatingWidget } from '@/src/components/FloatingIcon';
 import { ArrowUp } from 'lucide-react';
 
 const ScrollToTopButton: React.FC = () => {
@@ -61,6 +62,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
         <CheckoutModal />
         <AuthModal />
         <ToastContainer />
+        <WhatsAppFloatingWidget />
         <ScrollToTopButton />
       </div>
     </ShopProvider>

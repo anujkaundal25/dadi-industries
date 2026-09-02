@@ -1,21 +1,25 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import { useShop } from '../context/ShopContext';
-import { WhatsAppIcon } from './WhatsAppIcon';
-import { createWhatsAppInquiryUrl, openWhatsApp, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
-import { 
-  Search, 
-  Heart, 
-  ShoppingBag, 
-  Menu, 
-  X, 
-  User, 
-  Truck, 
-  Package, 
-  Sparkles, 
-  ChevronDown, 
-  LogOut 
-} from 'lucide-react';
+import React, { useState, useRef, useEffect } from "react";
+import { useShop } from "../context/ShopContext";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import {
+  createWhatsAppInquiryUrl,
+  openWhatsApp,
+  WHATSAPP_DISPLAY_PHONE,
+} from "../utils/whatsapp";
+import {
+  Search,
+  Heart,
+  ShoppingBag,
+  Menu,
+  X,
+  User,
+  Truck,
+  Package,
+  Sparkles,
+  ChevronDown,
+  LogOut,
+} from "lucide-react";
 
 export const Header: React.FC = () => {
   const {
@@ -29,7 +33,7 @@ export const Header: React.FC = () => {
     user,
     openAuthModal,
     signOut,
-    userOrders
+    userOrders,
   } = useShop();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -39,33 +43,34 @@ export const Header: React.FC = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setUserDropdownOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navLinks: Array<{
     label: string;
-    view: 'home' | 'story' | 'why-dadi' | 'contact';
+    view: "home" | "story" | "why-dadi" | "contact" | "#";
     onClick?: () => void;
   }> = [
-    { label: 'Home', view: 'home' },
-    { label: 'Shop Pickles', view: '#' },
-    { label: 'Our Story', view: 'story' },
-    { label: 'Why Dadi', view: 'why-dadi' },
-    { label: 'Contact', view: 'contact' }
+    { label: "Home", view: "home" },
+    { label: "Shop Pickles", view: "#" },
+    { label: "Our Story", view: "story" },
+    { label: "Why Dadi", view: "why-dadi" },
+    { label: "Contact", view: "contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#EAE1D0] shadow-xs transition-all w-full">
-      
       {/* 1. Top Announcement & Support Bar */}
       <div className="bg-[#103C26] text-[#FAF7F0] py-2 px-4 sm:px-8 text-[11px] sm:text-xs font-serif border-b border-[#C69D32]/30">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          
+        <div className="max-w-9xl mx-auto flex items-center justify-between gap-4 px-3 sm:px-6 lg:px-10">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 text-[#E8C86A] font-semibold tracking-wider uppercase text-[10px]">
               <Sparkles className="w-3.5 h-3.5" />
@@ -81,11 +86,11 @@ export const Header: React.FC = () => {
             <button
               onClick={() => {
                 if (user) {
-                  setCurrentView('account');
+                  setCurrentView("account");
                 } else if (userOrders.length > 0) {
-                  setCurrentView('order-tracking');
+                  setCurrentView("order-tracking");
                 } else {
-                  openAuthModal('signin');
+                  openAuthModal("signin");
                 }
               }}
               className="flex items-center gap-1.5 text-white/90 hover:text-[#E8C86A] transition-colors cursor-pointer text-[11px]"
@@ -95,7 +100,13 @@ export const Header: React.FC = () => {
             </button>
 
             <button
-              onClick={() => openWhatsApp(createWhatsAppInquiryUrl('Namaste Dadi Industries! I would like to place an order directly via WhatsApp.'))}
+              onClick={() =>
+                openWhatsApp(
+                  createWhatsAppInquiryUrl(
+                    "Namaste Dadi Industries! I would like to place an order directly via WhatsApp.",
+                  ),
+                )
+              }
               className="flex items-center gap-1 text-[#25D366] hover:text-[#1EBE5D] font-bold transition-colors cursor-pointer"
               title="Order on WhatsApp"
             >
@@ -104,17 +115,15 @@ export const Header: React.FC = () => {
               <span className="underline">{WHATSAPP_DISPLAY_PHONE}</span>
             </button>
           </div>
-
         </div>
       </div>
 
       {/* 2. Main High-Craft Brand Row */}
-      <div className="max-w-8xl mx-auto px-3 sm:px-6 lg:px-18">
+      <div className="max-w-8xl mx-auto px-3 sm:px-1 lg:px-18">
         <div className="flex items-center justify-between h-20 sm:h-22 gap-2 sm:gap-4">
-          
           {/* Left Navigation (Desktop) */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-lg font-medium font-sans">
-            {navLinks.map(link => {
+            {navLinks.map((link) => {
               const isActive = currentView === link.view;
               return (
                 <button
@@ -122,14 +131,14 @@ export const Header: React.FC = () => {
                   onClick={() => {
                     if (link.onClick) {
                       link.onClick();
-                    } else {
+                    } else if (link.view !== "#") {
                       setCurrentView(link.view);
                     }
                   }}
                   className={`relative py-1 tracking-wide transition-colors whitespace-nowrap cursor-pointer ${
-                    isActive 
-                      ? 'text-[#103C26] font-bold' 
-                      : 'text-[#2D3E33] hover:text-[#103C26]'
+                    isActive
+                      ? "text-[#103C26] font-bold"
+                      : "text-[#2D3E33] hover:text-[#103C26]"
                   }`}
                 >
                   <span>{link.label}</span>
@@ -142,11 +151,13 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Center Brand Identity (Logo) - Increased Size */}
-          <div 
-            onClick={() => setCurrentView('home')}
+          <div
+            onClick={() => setCurrentView("home")}
             className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-95 text-center flex-shrink-0"
           >
-            <img src="/logo.png" alt="Namaste Dadi Industries Logo" 
+            <img
+              src="/logo.png"
+              alt="Namaste Dadi Industries Logo"
               height={85}
               width={170}
               className="w-[160px] h-[80px] sm:w-[180px] sm:h-[90px] object-contain"
@@ -155,7 +166,6 @@ export const Header: React.FC = () => {
 
           {/* Right Action Icons */}
           <div className="flex items-center gap-1 sm:gap-3">
-            
             {/* Search Button */}
             <button
               onClick={() => setIsSearchOpen(true)}
@@ -190,14 +200,18 @@ export const Header: React.FC = () => {
                 >
                   <div className="w-7 h-7 rounded-full bg-[#103C26] text-[#E8C86A] font-serif font-bold text-xs flex items-center justify-center overflow-hidden flex-shrink-0">
                     {user.avatar ? (
-                      <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+                      <img
+                        src={user.avatar}
+                        alt={user.name}
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       user.name.charAt(0).toUpperCase()
                     )}
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="text-xs font-serif font-bold leading-none truncate max-w-[100px]">
-                      {user.name.split(' ')[0]}
+                      {user.name.split(" ")[0]}
                     </span>
                     <span className="text-[10px] text-[#5E6E64] leading-none mt-0.5">
                       My Orders ({userOrders.length})
@@ -207,7 +221,7 @@ export const Header: React.FC = () => {
                 </button>
               ) : (
                 <button
-                  onClick={() => openAuthModal('signin')}
+                  onClick={() => openAuthModal("signin")}
                   className="flex items-center gap-1.5 bg-[#F3ECE0] hover:bg-[#EAE1D0] text-[#103C26] py-2 px-3.5 rounded-full font-serif font-bold text-xs transition-all border border-[#C69D32]/40 cursor-pointer shadow-2xs"
                 >
                   <User className="w-4 h-4 text-[#103C26]" />
@@ -217,21 +231,23 @@ export const Header: React.FC = () => {
 
               {/* User Dropdown Menu */}
               {userDropdownOpen && user && (
-                <div 
-                  className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-[#EAE1D0] py-2 z-[9999]"
-                >
+                <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-[#EAE1D0] py-2 z-[9999]">
                   <div className="px-4 py-3 border-b border-[#EAE1D0] bg-[#FAF7F0]/60">
                     <span className="text-[10px] font-serif uppercase tracking-widest text-[#C69D32] font-bold block">
                       Signed In As
                     </span>
-                    <p className="font-serif font-bold text-sm text-[#103C26] truncate">{user.name}</p>
-                    <p className="text-xs text-[#5E6E64] truncate">{user.email}</p>
+                    <p className="font-serif font-bold text-sm text-[#103C26] truncate">
+                      {user.name}
+                    </p>
+                    <p className="text-xs text-[#5E6E64] truncate">
+                      {user.email}
+                    </p>
                   </div>
 
                   <div className="py-1">
                     <button
                       onClick={() => {
-                        setCurrentView('account');
+                        setCurrentView("account");
                         setUserDropdownOpen(false);
                       }}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
@@ -242,7 +258,7 @@ export const Header: React.FC = () => {
 
                     <button
                       onClick={() => {
-                        setCurrentView('account');
+                        setCurrentView("account");
                         setUserDropdownOpen(false);
                       }}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
@@ -289,22 +305,25 @@ export const Header: React.FC = () => {
               className="lg:hidden p-2 rounded-xl text-[#14241B] hover:bg-[#F3ECE0] cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
-
           </div>
-
         </div>
       </div>
 
       {/* Smooth Animated Mobile Drawer Menu */}
-      <div 
+      <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-[#FAF7F0] border-b border-[#EAE1D0] ${
-          mobileMenuOpen ? 'max-h-[500px] opacity-100 py-6 px-5' : 'max-h-0 opacity-0 py-0 px-5 pointer-events-none'
+          mobileMenuOpen
+            ? "max-h-[500px] opacity-100 py-6 px-5"
+            : "max-h-0 opacity-0 py-0 px-5 pointer-events-none"
         }`}
       >
         <div className="space-y-4">
-          
           {/* User Status / Login Bar in Mobile Drawer */}
           <div className="p-3.5 bg-white rounded-2xl border border-[#EAE1D0]">
             {user ? (
@@ -314,12 +333,19 @@ export const Header: React.FC = () => {
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                   <div className="overflow-hidden">
-                    <span className="text-xs font-serif font-bold text-[#103C26] block truncate">{user.name}</span>
-                    <span className="text-[11px] text-[#5E6E64] block truncate">{user.email}</span>
+                    <span className="text-xs font-serif font-bold text-[#103C26] block truncate">
+                      {user.name}
+                    </span>
+                    <span className="text-[11px] text-[#5E6E64] block truncate">
+                      {user.email}
+                    </span>
                   </div>
                 </div>
                 <button
-                  onClick={() => { signOut(); setMobileMenuOpen(false); }}
+                  onClick={() => {
+                    signOut();
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-xs text-red-600 font-serif font-semibold underline flex-shrink-0"
                 >
                   Sign Out
@@ -331,7 +357,10 @@ export const Header: React.FC = () => {
                   Have an account or want to register?
                 </span>
                 <button
-                  onClick={() => { openAuthModal('signin'); setMobileMenuOpen(false); }}
+                  onClick={() => {
+                    openAuthModal("signin");
+                    setMobileMenuOpen(false);
+                  }}
                   className="w-full bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-5 py-2.5 rounded-xl text-xs font-serif font-bold shadow-sm transition-all active:scale-95 text-center cursor-pointer"
                 >
                   Sign In / Register
@@ -342,13 +371,13 @@ export const Header: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="flex flex-col gap-2">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => {
                   if (link.onClick) {
                     link.onClick();
-                  } else {
+                  } else if (link.view !== "#") {
                     setCurrentView(link.view);
                   }
                   setMobileMenuOpen(false);
@@ -362,26 +391,33 @@ export const Header: React.FC = () => {
 
             {user && (
               <button
-                onClick={() => { setCurrentView('account'); setMobileMenuOpen(false); }}
+                onClick={() => {
+                  setCurrentView("account");
+                  setMobileMenuOpen(false);
+                }}
                 className="flex items-center justify-between text-left py-2.5 px-3 rounded-xl text-base font-serif font-bold text-[#103C26] bg-[#F3ECE0] transition-colors cursor-pointer"
               >
                 <span className="flex items-center gap-2 truncate">
                   <Package className="w-4 h-4 text-[#C69D32] flex-shrink-0" />
-                  <span className="truncate">My Recent Orders ({userOrders.length})</span>
+                  <span className="truncate">
+                    My Recent Orders ({userOrders.length})
+                  </span>
                 </span>
-                <span className="text-xs text-[#103C26] flex-shrink-0 ml-2">View →</span>
+                <span className="text-xs text-[#103C26] flex-shrink-0 ml-2">
+                  View →
+                </span>
               </button>
             )}
           </div>
 
           <div className="pt-3 border-t border-[#EAE1D0] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5E6E64]">
             <span className="font-serif">Harbazwala, Uttarakhand</span>
-            <span className="text-[#103C26] font-serif font-bold">100% Sun-Cured Heritage</span>
+            <span className="text-[#103C26] font-serif font-bold">
+              100% Sun-Cured Heritage
+            </span>
           </div>
-
         </div>
       </div>
-
     </header>
   );
 };

@@ -36,8 +36,8 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a 
-                href="#instagram" 
-                onClick={(e) => { e.preventDefault(); alert("Follow Dadi Industries on Instagram @dadiindustries (Demo)"); }}
+                href="https://www.instagram.com/dadi.industries/" 
+                // onClick={(e) => { e.preventDefault(); alert("Follow Dadi Industries on Instagram @dadiindustries (Demo)"); }}
                 className="w-9 h-9 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
                 aria-label="Instagram"
               >

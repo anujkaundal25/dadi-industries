@@ -11,6 +11,7 @@ import { CustomerReviews } from '@/src/components/CustomerReviews';
 import { TrustStatsStrip } from '@/src/components/TrustStatsStrip';
 import { SpecialOfferBanner } from '@/src/components/SpecialOfferBanner';
 import { FaqSection } from '@/src/components/FaqSection';
+import Cta from '@/src/components/Cta';
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       <SpecialOfferBanner />
       <div id="faq-section">
         <FaqSection />
+        <Cta/>
       </div>
     </>
   );

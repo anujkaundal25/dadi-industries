@@ -23,7 +23,13 @@ export const SpecialOfferBanner: React.FC = () => {
     <section className="py-12 sm:py-16 bg-[#FAF7F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#0B2819] via-[#103C26] to-[#16472F] text-white p-8 sm:p-12 shadow-2xl border border-[#C69D32]/40">
+        <div 
+          className="relative rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat text-white p-8 sm:p-12 shadow-2xl border border-[#C69D32]/40"
+          style={{ backgroundImage: `url('/home/cta.webp')` }}
+        >
+          {/* Dark Overlay with Gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2819]/90 via-[#103C26]/70 to-[#16472F]/50 pointer-events-none" />
+
           {/* Background gold glow */}
           <div className="absolute -right-16 -top-16 w-80 h-80 bg-[#C69D32]/15 rounded-full blur-3xl pointer-events-none" />
           

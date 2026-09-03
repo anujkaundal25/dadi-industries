@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useShop } from "../context/ShopContext";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import {
@@ -14,11 +14,7 @@ import {
   Menu,
   X,
   User,
-  Truck,
-  Package,
   Sparkles,
-  ChevronDown,
-  LogOut,
 } from "lucide-react";
 
 export const Header: React.FC = () => {
@@ -30,29 +26,10 @@ export const Header: React.FC = () => {
     wishlist,
     setIsWishlistOpen,
     setIsSearchOpen,
-    user,
     openAuthModal,
-    signOut,
-    userOrders,
   } = useShop();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setUserDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   const navLinks: Array<{
     label: string;
@@ -74,31 +51,17 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 text-[#E8C86A] font-semibold tracking-wider uppercase text-[10px]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Free Delivery Above ₹499</span>
+              <span>Instant Delivery in Dehradun </span>
             </span>
-            <span className="hidden md:inline text-white/40">•</span>
+            <span className="hidden md:inline text-xl font-extrabold bg-gradient-to-b from-[#E8C86A] to-white bg-clip-text text-transparent">
+              |
+            </span>{" "}
             <span className="hidden md:inline text-white/80 font-sans text-[11px]">
-              Slow Sun-Cured in Terracotta Martabans
+              Pan-India Delivery Available
             </span>
           </div>
 
           <div className="flex items-center gap-4 sm:gap-6 font-sans">
-            <button
-              onClick={() => {
-                if (user) {
-                  setCurrentView("account");
-                } else if (userOrders.length > 0) {
-                  setCurrentView("order-tracking");
-                } else {
-                  openAuthModal("signin");
-                }
-              }}
-              className="flex items-center gap-1.5 text-white/90 hover:text-[#E8C86A] transition-colors cursor-pointer text-[11px]"
-            >
-              <Truck className="w-3.5 h-3.5 text-[#E8C86A]" />
-              <span className="hidden sm:inline">Track Shipment</span>
-            </button>
-
             <button
               onClick={() =>
                 openWhatsApp(
@@ -191,97 +154,21 @@ export const Header: React.FC = () => {
               )}
             </button>
 
-            {/* User Account (Desktop Only) */}
-            <div className="relative hidden md:block" ref={dropdownRef}>
-              {user ? (
-                <button
-                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex items-center gap-2 bg-[#FAF7F0] hover:bg-[#F3ECE0] text-[#103C26] py-1.5 px-3 rounded-full border border-[#C69D32]/40 transition-all cursor-pointer shadow-2xs"
-                >
-                  <div className="w-7 h-7 rounded-full bg-[#103C26] text-[#E8C86A] font-serif font-bold text-xs flex items-center justify-center overflow-hidden flex-shrink-0">
-                    {user.avatar ? (
-                      <img
-                        src={user.avatar}
-                        alt={user.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      user.name.charAt(0).toUpperCase()
-                    )}
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-xs font-serif font-bold leading-none truncate max-w-[100px]">
-                      {user.name.split(" ")[0]}
-                    </span>
-                    <span className="text-[10px] text-[#5E6E64] leading-none mt-0.5">
-                      My Orders ({userOrders.length})
-                    </span>
-                  </div>
-                  <ChevronDown className="w-3.5 h-3.5 text-[#5E6E64]" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => openAuthModal("signin")}
-                  className="flex items-center gap-1.5 bg-[#F3ECE0] hover:bg-[#EAE1D0] text-[#103C26] py-2 px-3.5 rounded-full font-serif font-bold text-xs transition-all border border-[#C69D32]/40 cursor-pointer shadow-2xs"
-                >
-                  <User className="w-4 h-4 text-[#103C26]" />
-                  <span>Login / Sign Up</span>
-                </button>
-              )}
-
-              {/* User Dropdown Menu */}
-              {userDropdownOpen && user && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-[#EAE1D0] py-2 z-[9999]">
-                  <div className="px-4 py-3 border-b border-[#EAE1D0] bg-[#FAF7F0]/60">
-                    <span className="text-[10px] font-serif uppercase tracking-widest text-[#C69D32] font-bold block">
-                      Signed In As
-                    </span>
-                    <p className="font-serif font-bold text-sm text-[#103C26] truncate">
-                      {user.name}
-                    </p>
-                    <p className="text-xs text-[#5E6E64] truncate">
-                      {user.email}
-                    </p>
-                  </div>
-
-                  <div className="py-1">
-                    <button
-                      onClick={() => {
-                        setCurrentView("account");
-                        setUserDropdownOpen(false);
-                      }}
-                      className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
-                    >
-                      <Package className="w-4 h-4 text-[#C69D32]" />
-                      <span>Recent Orders ({userOrders.length})</span>
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        setCurrentView("account");
-                        setUserDropdownOpen(false);
-                      }}
-                      className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-bold text-[#103C26] hover:bg-[#FAF7F0] text-left cursor-pointer"
-                    >
-                      <User className="w-4 h-4 text-[#103C26]" />
-                      <span>Patron Profile & Address</span>
-                    </button>
-                  </div>
-
-                  <div className="border-t border-[#EAE1D0] pt-1">
-                    <button
-                      onClick={() => {
-                        signOut();
-                        setUserDropdownOpen(false);
-                      }}
-                      className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-serif font-semibold text-red-700 hover:bg-red-50 text-left cursor-pointer"
-                    >
-                      <LogOut className="w-4 h-4" />
-                      <span>Sign Out</span>
-                    </button>
-                  </div>
-                </div>
-              )}
+            {/* Authentication Actions (Desktop Only) */}
+            <div className="hidden md:flex items-center gap-2">
+              <button
+                onClick={() => openAuthModal("signin")}
+                className="flex items-center gap-1.5 text-[#103C26] hover:text-[#0B2819] py-2 px-2.5 rounded-full font-serif font-bold text-xs transition-all cursor-pointer"
+              >
+                <User className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+              <button
+                onClick={() => openAuthModal("signup")}
+                className="bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] py-2 px-3.5 rounded-full font-serif font-bold text-xs transition-all border border-[#C69D32]/50 cursor-pointer shadow-2xs"
+              >
+                Sign Up
+              </button>
             </div>
 
             {/* Shopping Cart Icon Button */}
@@ -326,47 +213,26 @@ export const Header: React.FC = () => {
         <div className="space-y-4">
           {/* User Status / Login Bar in Mobile Drawer */}
           <div className="p-3.5 bg-white rounded-2xl border border-[#EAE1D0]">
-            {user ? (
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-9 h-9 rounded-full bg-[#103C26] text-[#E8C86A] font-serif font-bold text-sm flex items-center justify-center flex-shrink-0">
-                    {user.name.charAt(0).toUpperCase()}
-                  </div>
-                  <div className="overflow-hidden">
-                    <span className="text-xs font-serif font-bold text-[#103C26] block truncate">
-                      {user.name}
-                    </span>
-                    <span className="text-[11px] text-[#5E6E64] block truncate">
-                      {user.email}
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => {
-                    signOut();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-xs text-red-600 font-serif font-semibold underline flex-shrink-0"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
-                <span className="text-xs text-[#5E6E64] font-sans text-center sm:text-left">
-                  Have an account or want to register?
-                </span>
-                <button
-                  onClick={() => {
-                    openAuthModal("signin");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-5 py-2.5 rounded-xl text-xs font-serif font-bold shadow-sm transition-all active:scale-95 text-center cursor-pointer"
-                >
-                  Sign In / Register
-                </button>
-              </div>
-            )}
+            <div className="flex items-center gap-2 w-full">
+              <button
+                onClick={() => {
+                  openAuthModal("signin");
+                  setMobileMenuOpen(false);
+                }}
+                className="flex-1 border border-[#103C26] text-[#103C26] hover:bg-[#F3ECE0] px-5 py-2.5 rounded-xl text-xs font-serif font-bold shadow-sm transition-all active:scale-95 text-center cursor-pointer"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => {
+                  openAuthModal("signup");
+                  setMobileMenuOpen(false);
+                }}
+                className="flex-1 bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] px-5 py-2.5 rounded-xl text-xs font-serif font-bold shadow-sm transition-all active:scale-95 text-center cursor-pointer"
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
 
           {/* Navigation Links */}
@@ -389,25 +255,6 @@ export const Header: React.FC = () => {
               </button>
             ))}
 
-            {user && (
-              <button
-                onClick={() => {
-                  setCurrentView("account");
-                  setMobileMenuOpen(false);
-                }}
-                className="flex items-center justify-between text-left py-2.5 px-3 rounded-xl text-base font-serif font-bold text-[#103C26] bg-[#F3ECE0] transition-colors cursor-pointer"
-              >
-                <span className="flex items-center gap-2 truncate">
-                  <Package className="w-4 h-4 text-[#C69D32] flex-shrink-0" />
-                  <span className="truncate">
-                    My Recent Orders ({userOrders.length})
-                  </span>
-                </span>
-                <span className="text-xs text-[#103C26] flex-shrink-0 ml-2">
-                  View →
-                </span>
-              </button>
-            )}
           </div>
 
           <div className="pt-3 border-t border-[#EAE1D0] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5E6E64]">

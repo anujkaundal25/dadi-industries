@@ -56,7 +56,7 @@ export const Category: React.FC = () => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              onClick={() => handleCategoryClick(cat.categoryKey)}
+              // onClick={() => handleCategoryClick(cat.categoryKey)}
               className="relative rounded-3xl overflow-hidden shadow-xl border border-[#EAE1D0] group bg-[#0B2819] flex flex-col justify-between min-h-[440px] sm:min-h-[480px] cursor-pointer"
             >
               {/* Background Image with Zoom Effect */}

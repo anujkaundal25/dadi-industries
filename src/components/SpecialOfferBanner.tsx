@@ -14,17 +14,17 @@ export const SpecialOfferBanner: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // const handleShopNow = () => {
-  //   setSelectedCategory('all');
-  //   setCurrentView('shop');
-  // };
+  const handleShopNow = () => {
+    setSelectedCategory('all');
+    setCurrentView('shop');
+  };
 
   return (
     <section className="py-12 sm:py-16 bg-[#FAF7F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div 
-          className="relative rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat text-white p-8 sm:p-12 shadow-2xl border border-[#C69D32]/40"
+          className="relative rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat text-white p-8 sm:p-12 shadow-2xl border border-[#C69D32]/40 min-h-[420px] flex items-center"
           style={{ backgroundImage: `url('/home/cta.webp')` }}
         >
           {/* Dark Overlay with Gradient for text readability */}
@@ -33,7 +33,7 @@ export const SpecialOfferBanner: React.FC = () => {
           {/* Background gold glow */}
           <div className="absolute -right-16 -top-16 w-80 h-80 bg-[#C69D32]/15 rounded-full blur-3xl pointer-events-none" />
           
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
             {/* Left Content */}
             <div className="lg:col-span-8 space-y-4">
@@ -82,7 +82,7 @@ export const SpecialOfferBanner: React.FC = () => {
             {/* Right Action Button */}
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
               <button
-                // onClick={handleShopNow}
+                onClick={handleShopNow}
                 className="bg-[#C69D32] hover:bg-[#D8B244] text-[#0B2819] px-8 py-4 rounded-full font-serif font-bold text-base shadow-xl flex items-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-[#E8C86A]"
               >
                 <span>Shop All Pickles</span>

@@ -93,7 +93,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
 
           {/* New Arrival or Bestseller Tag */}
-          {product.isBestseller && (
+          {/* {product.isBestseller && (
             <div className="absolute bottom-2 left-2 bg-[#103C26] text-[#FAF7F0] text-[10px] font-serif font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-md shadow-xs border border-[#C69D32]/40">
               Heritage Bestseller
             </div>
@@ -102,7 +102,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="absolute bottom-2 left-2 bg-[#C69D32] text-[#0B2819] text-[10px] font-serif font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-md shadow-xs">
               Artisanal Batch
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Content Area */}
@@ -110,13 +110,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           
           {/* Rating */}
           <div className="flex items-center gap-1.5 mb-1.5">
-            <div className="flex text-[#C69D32]">
+            {/* <div className="flex text-[#C69D32]">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3.5 h-3.5 fill-current" />
               ))}
-            </div>
-            <span className="text-xs font-bold text-[#14241B] font-sans">{product.rating}</span>
-            <span className="text-[11px] text-[#5E6E64] font-sans">({product.reviewCount})</span>
+            </div> */}
+            {/* <span className="text-xs font-bold text-[#14241B] font-sans">{product.rating}</span> */}
+            {/* <span className="text-[11px] text-[#5E6E64] font-sans">({product.reviewCount})</span> */}
           </div>
 
           {/* Product Title */}
@@ -125,12 +125,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </h3>
 
           {/* Tagline / short description */}
-          <p className="text-xs text-[#5E6E64] line-clamp-2 mt-1 leading-relaxed font-sans">
+          {/* <p className="text-xs text-[#5E6E64] line-clamp-2 mt-1 leading-relaxed font-sans">
             {product.tagline}
-          </p>
+          </p> */}
 
           {/* Weight Variant Selector */}
-          <div className="mt-3 flex items-center gap-1.5">
+          {/* <div className="mt-3 flex items-center gap-1.5">
             <span className="text-[11px] font-medium text-[#5E6E64]">Jar Size:</span>
             <div className="flex items-center gap-1">
               {product.variants.map(v => (
@@ -150,14 +150,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>
 
       {/* Bottom Row: Price & Add to Cart */}
       <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
-        <div className="pt-3 border-t border-[#EAE1D0] flex items-center justify-between gap-2">
+        <div className="pt-3 flex items-center justify-between gap-2">
           
           {/* Price */}
           <div>

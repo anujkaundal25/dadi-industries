@@ -28,10 +28,10 @@ export const Category: React.FC = () => {
     }
   ];
 
-  const handleCategoryClick = (categoryKey: string) => {
-    setSelectedCategory(categoryKey);
-    setCurrentView('shop');
-  };
+  // const handleCategoryClick = (categoryKey: string) => {
+  //   setSelectedCategory(categoryKey);
+  //   setCurrentView('shop');
+  // };
 
   return (
     <section className="w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF7F0]">
@@ -56,7 +56,8 @@ export const Category: React.FC = () => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="relative rounded-3xl overflow-hidden shadow-xl border border-[#EAE1D0] group bg-[#0B2819] flex flex-col justify-between min-h-[440px] sm:min-h-[480px]"
+              onClick={() => handleCategoryClick(cat.categoryKey)}
+              className="relative rounded-3xl overflow-hidden shadow-xl border border-[#EAE1D0] group bg-[#0B2819] flex flex-col justify-between min-h-[440px] sm:min-h-[480px] cursor-pointer"
             >
               {/* Background Image with Zoom Effect */}
               <img
@@ -87,6 +88,17 @@ export const Category: React.FC = () => {
                 <p className="text-base sm:text-lg text-[#FAF7F0]/90 font-sans max-w-lg leading-relaxed">
                   {cat.description}
                 </p>
+
+                <button 
+                  // onClick={(e) => {
+                  //   e.stopPropagation(); // Prevent card wrapper click conflict
+                  //   handleCategoryClick(cat.categoryKey);
+                  // }}
+                  className="inline-flex items-center gap-2 bg-[#C69D32] text-[#0B2819] hover:bg-white hover:text-[#C69D32] text-sm font-serif font-bold uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 shadow-md group/btn cursor-pointer"
+                >
+                  <span>Order Now</span>
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </button>
               </div>
             </div>
           ))}

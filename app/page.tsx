@@ -12,6 +12,7 @@ import { TrustStatsStrip } from '@/src/components/TrustStatsStrip';
 import { SpecialOfferBanner } from '@/src/components/SpecialOfferBanner';
 import { FaqSection } from '@/src/components/FaqSection';
 import Cta from '@/src/components/Cta';
+import Category from '@/src/components/Category';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <CategorySection />
       {/* <BestsellersSection /> */}
       <BrandStorySection />
+      <Category/>
       <WhyDadiSection />
       <IndianMealExperience />
       <CustomerReviews />

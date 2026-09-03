@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
             <span className="hidden md:inline text-xl font-extrabold bg-gradient-to-b from-[#E8C86A] to-white bg-clip-text text-transparent">
               |
             </span>{" "}
-            <span className="hidden md:inline text-white/80 font-sans text-[11px]">
+            <span className="hidden md:inline text-white/80 font-sans text-[14px]">
               Pan-India Delivery Available
             </span>
           </div>

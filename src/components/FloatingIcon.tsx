@@ -62,14 +62,14 @@ export const WhatsAppFloatingWidget: React.FC = () => {
 
   return (
     <>
-      {/* Floating Trigger Button */}
-      <div className="fixed bottom-6 right-6 z-[60] flex items-center gap-3">
+      {/* Floating Trigger Button with 'group' class for hover effects */}
+      <div className="fixed bottom-6 right-6 z-[60] flex items-center gap-3 group">
         
-        {/* Floating Tooltip Pill (Desktop) */}
+        {/* Floating Tooltip Pill (Desktop) - Shows only on hover */}
         {!isOpen && (
           <div 
             onClick={() => setIsOpen(true)}
-            className="hidden sm:flex items-center gap-2 bg-[#103C26] text-[#FAF7F0] px-3.5 py-2 rounded-full shadow-lg border border-[#C69D32]/40 text-xs font-serif font-bold cursor-pointer hover:bg-[#0B2819] transition-all hover:scale-105"
+            className="hidden sm:flex items-center gap-2 bg-[#103C26] text-[#FAF7F0] px-3.5 py-2 rounded-full shadow-lg border border-[#C69D32]/40 text-xs font-serif font-bold cursor-pointer hover:bg-[#0B2819] transition-all opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-300"
           >
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
             <span>Order on WhatsApp</span>
@@ -131,8 +131,6 @@ export const WhatsAppFloatingWidget: React.FC = () => {
 
           <div className="p-4 sm:p-5 space-y-4 max-h-[75vh] overflow-y-auto font-sans">
             
-          
-
             {/* Quick 1-Tap Bestseller Order */}
             <div className="space-y-2">
               <span className="text-[11px] font-serif font-bold uppercase tracking-wider text-[#5E6E64] block">
@@ -143,7 +141,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
                   <div
                     key={p.id}
                     onClick={() => handleOrderQuickProduct(p.id)}
-                    className="flex items-center justify-between p-2.5 bg-white hover:bg-[#F3ECE0] rounded-xl border border-[#EAE1D0] transition-colors cursor-pointer group"
+                    className="flex items-center justify-between p-2.5 bg-white hover:bg-[#F3ECE0] rounded-xl border border-[#EAE1D0] transition-colors cursor-pointer group/item"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <img
@@ -152,7 +150,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
                         className="w-9 h-9 rounded-lg object-cover border border-[#EAE1D0] shrink-0"
                       />
                       <div className="truncate">
-                        <h4 className="font-serif font-bold text-xs text-[#103C26] truncate group-hover:text-[#C69D32]">
+                        <h4 className="font-serif font-bold text-xs text-[#103C26] truncate group-hover/item:text-[#C69D32]">
                           {p.name}
                         </h4>
                         <span className="text-[10px] text-[#5E6E64] block">
@@ -161,7 +159,7 @@ export const WhatsAppFloatingWidget: React.FC = () => {
                       </div>
                     </div>
 
-                    <span className="flex items-center gap-1 text-[11px] font-serif font-bold text-[#25D366] group-hover:translate-x-0.5 transition-transform shrink-0">
+                    <span className="flex items-center gap-1 text-[11px] font-serif font-bold text-[#25D366] group-hover/item:translate-x-0.5 transition-transform shrink-0">
                       <span>Order</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </span>

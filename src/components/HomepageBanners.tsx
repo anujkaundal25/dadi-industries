@@ -225,39 +225,6 @@ export const HomepageBanners: React.FC = () => {
 
       </div>
 
-      {/* 3. Special Seasonal Discount Strip Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="bg-gradient-to-r from-[#103C26] via-[#0B2819] to-[#103C26] rounded-3xl p-6 sm:p-10 text-[#FAF7F0] border border-[#C69D32]/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2.5">
-              <Sparkles className="w-5 h-5 text-[#E8C86A]" />
-              <span className="text-xs sm:text-sm uppercase font-serif font-bold tracking-widest text-[#E8C86A]">
-                Seasonal Harvest Offer
-              </span>
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#FAF7F0]">
-              Use Coupon <span className="text-[#E8C86A] underline">DESISWAAD</span> for Flat 10% Off
-            </h3>
-            <p className="text-sm sm:text-base text-[#FAF7F0]/90 font-sans">
-              Plus enjoy Free Pan-India Express Delivery on all orders above ₹499. Fresh batch packed directly from Uttarakhand.
-            </p>
-          </div>
-
-          <div className="flex items-center shrink-0">
-            <button
-              // onClick={() => {
-              //   setSelectedCategory('all');
-              //   setCurrentView('shop');
-              // }}
-              className="w-full md:w-auto bg-[#C69D32] hover:bg-[#E8C86A] text-[#0B2819] px-8 py-4 rounded-full font-serif font-bold text-sm sm:text-base transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2.5"
-            >
-              <span>Shop Now with Code</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 };

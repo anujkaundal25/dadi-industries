@@ -41,7 +41,7 @@ export const OurStoryPage: React.FC = () => {
       description: 'Factory pickles use pre-ground dusty powders. At Dadi Industries, whole roasted fennel (saunf), fenugreek (methi), nigella (kalonji), and wild yellow mustard are hand-crushed on heavy granite stone.',
       details: 'Coarse stone grinding ruptures the spice oil cells without burning them, retaining the vibrant aroma that fills the entire room when you unseal a jar.',
       icon: Sparkles,
-      image: 'https://images.unsplash.com/photo-1596040033283-912015078e16?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.pinimg.com/1200x/9c/e5/05/9ce505d6c42c36c0eb9a871c68c91217.jpg',
       tag: 'Ancestral Spicing'
     },
     {
@@ -61,7 +61,7 @@ export const OurStoryPage: React.FC = () => {
       description: 'We submerge the matured pickles in single-origin, first-press Kachi Ghani mustard oil infused with pure Hathras hing (asafoetida) and Sendha Namak (rock salt).',
       details: 'The natural pungency of cold-pressed oil creates a sterile, living seal that preserves the crunch and tang for years without a single drop of synthetic vinegar.',
       icon: ShieldCheck,
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.pinimg.com/1200x/ef/dc/98/efdc98b92c06cfe2316edba833b9edf5.jpg',
       tag: 'Pure Sealing'
     }
   ];

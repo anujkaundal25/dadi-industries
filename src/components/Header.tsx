@@ -94,7 +94,7 @@ export const Header: React.FC = () => {
                   onClick={() => {
                     if (link.onClick) {
                       link.onClick();
-                    } else if (link.view !== "#") {
+                    } else if (link.view) {
                       setCurrentView(link.view);
                     }
                   }}
@@ -243,7 +243,7 @@ export const Header: React.FC = () => {
                 onClick={() => {
                   if (link.onClick) {
                     link.onClick();
-                  } else if (link.view !== "#") {
+                  } else if (link.view) {
                     setCurrentView(link.view);
                   }
                   setMobileMenuOpen(false);

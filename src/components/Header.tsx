@@ -33,11 +33,11 @@ export const Header: React.FC = () => {
 
   const navLinks: Array<{
     label: string;
-    view: "home" | "story" | "why-dadi" | "contact" | "#";
+    view: "home" | "story" | "why-dadi" | "contact" | "shop";
     onClick?: () => void;
   }> = [
     { label: "Home", view: "home" },
-    { label: "Shop Pickles", view: "#" },
+    { label: "Shop Pickles", view: "shop" },
     { label: "Our Story", view: "story" },
     { label: "Why Dadi", view: "why-dadi" },
     { label: "Contact", view: "contact" },

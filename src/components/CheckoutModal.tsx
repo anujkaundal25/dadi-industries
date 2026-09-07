@@ -17,7 +17,7 @@ export const CheckoutModal: React.FC = () => {
   } = useShop();
 
   const [customerName, setCustomerName] = useState('Rahul Sharma');
-  const [phone, setPhone] = useState('9876543210');
+  const [phone, setPhone] = useState('8630000405');
   const [email, setEmail] = useState('rahul.sharma@example.com');
   const [address, setAddress] = useState('Flat 402, Green Avenue, Rajpur Road');
   const [city, setCity] = useState('Dehradun');

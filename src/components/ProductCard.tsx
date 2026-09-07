@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Product } from '../types';
-import { useShop } from '../context/ShopContext';
-import { Star, Heart, Eye, ShoppingBag, Check } from 'lucide-react';
+import React, { useState } from "react";
+import { Product } from "../types";
+import { useShop } from "../context/ShopContext";
+import { Star, Heart, Eye, ShoppingBag, Check, MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 interface ProductCardProps {
   product: Product;
@@ -13,16 +14,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     setQuickViewProduct,
     addToCart,
     wishlist,
-    toggleWishlist
+    toggleWishlist,
   } = useShop();
 
   const [selectedWeight, setSelectedWeight] = useState(product.weight);
   const [justAdded, setJustAdded] = useState(false);
 
   const isWishlisted = wishlist.includes(product.id);
-  const currentVariant = product.variants.find(v => v.weight === selectedWeight) || {
+  const currentVariant = product.variants.find(
+    (v) => v.weight === selectedWeight,
+  ) || {
     price: product.price,
-    originalPrice: product.originalPrice
+    originalPrice: product.originalPrice,
   };
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -33,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div 
+    <div
       onClick={() => openProductDetail(product.id)}
       className="group cursor-pointer bg-white rounded-2xl border border-[#EAE1D0] overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
     >
@@ -50,7 +53,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Top Badges: Veg mark & Spice tag */}
           <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
             {/* Standard Indian 100% Veg Mark */}
-            <div className="w-5 h-5 bg-white rounded-sm border border-emerald-700 flex items-center justify-center p-0.5 shadow-xs" title="100% Vegetarian">
+            <div
+              className="w-5 h-5 bg-white rounded-sm border border-emerald-700 flex items-center justify-center p-0.5 shadow-xs"
+              title="100% Vegetarian"
+            >
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-700" />
             </div>
 
@@ -62,22 +68,26 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           {/* Wishlist and Quick View Action Overlay */}
           <div className="absolute top-3 right-3 flex flex-col gap-1.5 z-10">
+            {/* Wishlist */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 toggleWishlist(product.id);
               }}
               className={`p-2 rounded-full backdrop-blur-md transition-all shadow-sm ${
-                isWishlisted 
-                  ? 'bg-[#B9442C] text-white' 
-                  : 'bg-white/90 text-[#14241B] hover:bg-white hover:text-[#B9442C]'
+                isWishlisted
+                  ? "bg-[#B9442C] text-white"
+                  : "bg-white/90 text-[#14241B] hover:bg-white hover:text-[#B9442C]"
               }`}
               aria-label="Wishlist"
               title="Add to Wishlist"
             >
-              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
+              <Heart
+                className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`}
+              />
             </button>
 
+            {/* Quick View */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -90,6 +100,25 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               <Eye className="w-4 h-4" />
             </button>
 
+            {/* WhatsApp */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+
+                const message = `Hi, I'm interested in ${product.name}. Can you please share more details?`;
+                const whatsappNumber = "919876543210"; // Replace with your WhatsApp number
+
+                window.open(
+                  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+                  "_blank",
+                );
+              }}
+              className="p-2 rounded-full bg-[#25D366] text-white hover:bg-white hover:text-[#25D366] backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all shadow-sm cursor-pointer"
+              aria-label="WhatsApp"
+              title="Contact on WhatsApp"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+            </button>
           </div>
 
           {/* New Arrival or Bestseller Tag */}
@@ -107,7 +136,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         {/* Content Area */}
         <div className="p-4 sm:p-5">
-          
           {/* Rating */}
           <div className="flex items-center gap-1.5 mb-1.5">
             {/* <div className="flex text-[#C69D32]">
@@ -151,14 +179,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               ))}
             </div>
           </div> */}
-
         </div>
       </div>
 
       {/* Bottom Row: Price & Add to Cart */}
       <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
         <div className="pt-3 flex items-center justify-between gap-2">
-          
           {/* Price */}
           <div>
             <div className="flex items-baseline gap-1.5">
@@ -171,7 +197,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </span>
               )}
             </div>
-            <span className="text-[10px] text-[#5E6E64] block -mt-0.5 font-sans">All taxes included</span>
+            <span className="text-[10px] text-[#5E6E64] block -mt-0.5 font-sans">
+              All taxes included
+            </span>
           </div>
 
           {/* Add to Cart Button */}
@@ -181,8 +209,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               disabled={justAdded}
               className={`flex items-center gap-1.5 text-xs font-medium px-3.5 py-2.5 rounded-full transition-all active:scale-95 shadow-xs font-serif ${
                 justAdded
-                  ? 'bg-[#C69D32] text-[#0B2819] font-bold'
-                  : 'bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] border border-[#C69D32]/40'
+                  ? "bg-[#C69D32] text-[#0B2819] font-bold"
+                  : "bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] border border-[#C69D32]/40"
               }`}
             >
               {justAdded ? (
@@ -198,10 +226,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               )}
             </button>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 };

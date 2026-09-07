@@ -28,7 +28,7 @@ export const ContactPage: React.FC = () => {
     showToast('Message sent! Dadi Industries team will contact you shortly.', 'success');
   };
 
-  const address = "Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001, India";
+  const address = "Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001";
 
   return (
     <div className="bg-[#FAF7F0] min-h-screen py-12 sm:py-20">
@@ -103,7 +103,7 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 86300 00405"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-2.5 bg-[#FAF7F0] rounded-xl border border-[#EAE1D0] text-sm text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
@@ -206,7 +206,7 @@ export const ContactPage: React.FC = () => {
                 <Mail className="w-5 h-5 text-[#C69D32]" />
                 <div>
                   <span className="text-[11px] text-[#5E6E64] block font-sans">Email Inquiries:</span>
-                  <span className="text-xs font-serif font-bold text-[#103C26]">care@dadiindustries.com</span>
+                  <span className="text-xs font-serif font-bold text-[#103C26]">sumit421976@gmail.com</span>
                 </div>
               </div>
 

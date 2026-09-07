@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   const { setCurrentView, setSelectedCategory } = useShop();
   const [showMapModal, setShowMapModal] = useState(false);
 
-  const address = "Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001, India";
+  const address = "Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001";
 
   const handlePageNav = (view: 'home' | 'shop' | 'story' | 'why-dadi' | 'contact') => {
     setCurrentView(view);
@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-xs text-[#C8D6CD] font-sans">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#E8C86A] shrink-0 mt-0.5" />
-                <span>Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001</span>
+                <span>Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001</span>
               </div>
               
               <div className="flex items-center gap-2">
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
 
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#E8C86A] shrink-0" />
-                <span className="truncate">care@dadiindustries.com</span>
+                <span className="truncate">sumit421976@gmail.com</span>
               </div>
 
               <div className="pt-2 flex flex-col gap-2">
@@ -229,14 +229,14 @@ export const Footer: React.FC = () => {
           <div className="bg-[#FAF7F0] text-[#103C26] max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#C69D32]/50 relative animate-in fade-in zoom-in duration-200">
             <h3 className="font-serif font-bold text-2xl mb-2 text-[#103C26]">Dadi Industries Heritage Facility</h3>
             <p className="text-sm text-[#5E6E64] mb-4 font-sans">
-              Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001, India
+              Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001
             </p>
 
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#F3ECE0] mb-6 border border-[#EAE1D0] flex items-center justify-center text-center p-4">
               <div>
                 <MapPin className="w-10 h-10 text-[#C69D32] mx-auto mb-2 animate-bounce" />
-                <p className="text-sm font-serif font-bold text-[#103C26]">Harbazwala, Shisham Bara Production Facility</p>
-                <p className="text-xs text-[#5E6E64] font-sans">Dehradun Valley Foothills, Uttarakhand</p>
+                <p className="text-sm font-serif font-bold text-[#103C26]">Harbazwala, Sainik Colony Production Facility</p>
+                <p className="text-xs text-[#5E6E64] font-sans">Dehradun, Uttarakhand</p>
               </div>
             </div>
 

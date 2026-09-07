@@ -57,7 +57,7 @@ export const AuthModal: React.FC = () => {
     } else {
       setName('Rohit Sharma');
       setEmail('rohits502010@gmail.com');
-      setPhone('+91 98765 43210');
+      setPhone('+91 86300 00405');
       setAddress('B-14, Green Valley Enclave, Rajpur Road');
       setCity('Dehradun');
       setStateVal('Uttarakhand');
@@ -251,7 +251,7 @@ export const AuthModal: React.FC = () => {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 86300 00405"
                       className="w-full bg-white border border-[#EAE1D0] rounded-xl pl-9 pr-3 py-1.5 text-xs text-[#103C26] focus:outline-none focus:border-[#C69D32]"
                     />
                   </div>

@@ -27,7 +27,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Where is Dadi Industries located?",
-    answer: "Our kitchen and packing facility is situated Near Kanti Mart, Harbazwala, Shisham Bara, Uttarakhand 248001, India, amidst clean Himalayan foothills and fresh local produce sourcing."
+    answer: "Our kitchen and packing facility is situated at Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001, amidst clean Himalayan foothills and fresh local produce sourcing."
   },
   {
     question: "Do you deliver across India?",
@@ -35,6 +35,6 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "How can I contact Dadi Industries for orders or queries?",
-    answer: "You can reach out through our Contact page form, email us at care@dadiindustries.com, or reach our customer support team for bulk and retail inquiries."
+    answer: "You can reach out through our Contact page form, email us at sumit421976@gmail.com, or reach our customer support team for bulk and retail inquiries."
   }
 ];

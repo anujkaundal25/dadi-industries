@@ -11,7 +11,7 @@ export interface Product {
   hindiName?: string;
   tagline: string;
   description: string;
-  category: 'mango' | 'lemon' | 'chilli' | 'mixed' | 'chutney_masala';
+  category: 'aachar' | 'candy' | 'murabba' | 'chutney';
   categoryLabel: string;
   price: number;
   originalPrice?: number;

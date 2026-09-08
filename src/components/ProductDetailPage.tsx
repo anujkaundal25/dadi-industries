@@ -18,7 +18,9 @@ import {
   Sun,
   Flame,
   Info,
-  Leaf
+  Leaf,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 export const ProductDetailPage: React.FC = () => {
@@ -75,6 +77,14 @@ export const ProductDetailPage: React.FC = () => {
     showToast('Product link copied to clipboard!', 'info');
   };
 
+  const showPreviousImage = () => {
+    setActiveImageIndex((currentIndex) => (currentIndex - 1 + images.length) % images.length);
+  };
+
+  const showNextImage = () => {
+    setActiveImageIndex((currentIndex) => (currentIndex + 1) % images.length);
+  };
+
   return (
     <div className="bg-[#FAF7F0] min-h-screen py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,11 +92,11 @@ export const ProductDetailPage: React.FC = () => {
         {/* Back Navigation Bar */}
         <div className="mb-6 flex items-center justify-between">
           <button
-            onClick={() => setCurrentView('home')}
+            onClick={() => setCurrentView('shop')}
             className="inline-flex items-center gap-2 text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors py-1.5 px-3 rounded-lg hover:bg-white border border-transparent hover:border-[#EAE1D0] cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
+            <span>Back to Shop</span>
           </button>
 
           <button
@@ -112,6 +122,25 @@ export const ProductDetailPage: React.FC = () => {
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
+
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={showPreviousImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 text-[#103C26] shadow-md hover:bg-white transition-colors cursor-pointer"
+                    aria-label="Previous product image"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={showNextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 text-[#103C26] shadow-md hover:bg-white transition-colors cursor-pointer"
+                    aria-label="Next product image"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
 
               {/* Badges */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -480,10 +509,10 @@ export const ProductDetailPage: React.FC = () => {
               </div>
 
               <button
-                onClick={() => setCurrentView('home')}
+                onClick={() => setCurrentView('shop')}
                 className="text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors cursor-pointer"
               >
-                Back to Home →
+                Back to Shop →
               </button>
             </div>
 

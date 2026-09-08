@@ -19,6 +19,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const [selectedWeight, setSelectedWeight] = useState(product.weight);
   const [justAdded, setJustAdded] = useState(false);
+  const images = product.galleryImages?.length > 1
+    ? product.galleryImages
+    : [product.image];
 
   const isWishlisted = wishlist.includes(product.id);
   const currentVariant = product.variants.find(
@@ -44,9 +47,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Top Image Container */}
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F3ECE0]">
           <img
-            src={product.image}
+            src={images[0]}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 group-hover:scale-105 transition-all duration-500"
+            loading="lazy"
+          />
+          <img
+            src={images[1] ?? images[0]}
+            alt={`${product.name} alternate view`}
+            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
             loading="lazy"
           />
 

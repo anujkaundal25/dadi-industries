@@ -49,7 +49,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <img
             src={images[0]}
             alt={product.name}
-            className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 group-hover:scale-105 transition-all duration-500"
+            className="absolute inset-0 w-full h-full object-contain opacity-100 group-hover:opacity-0 group-hover:scale-105 transition-all duration-500"
             loading="lazy"
           />
           <img

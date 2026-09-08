@@ -120,7 +120,7 @@ export const ProductDetailPage: React.FC = () => {
               <img
                 src={images[activeImageIndex] || product.image}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
 
               {images.length > 1 && (

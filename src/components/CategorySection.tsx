@@ -26,21 +26,10 @@ export const CategorySection: React.FC = () => {
               Explore By Flavour Heritage
             </h2>
           </div>
-
-          <button
-            // onClick={() => {
-            //   setSelectedCategory('all');
-            //   setCurrentView('shop');
-            // }}
-            className="hidden sm:inline-flex items-center gap-2 text-sm sm:text-base font-serif font-bold uppercase tracking-wider text-[#103C26] hover:text-[#C69D32] transition-colors"
-          >
-            <span>All Categories</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
 
         {/* 5-Column Responsive Showcase Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
           {CATEGORIES.map((cat) => (
             <div
               key={cat.id}

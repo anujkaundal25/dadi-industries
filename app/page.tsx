@@ -31,7 +31,7 @@ export default function HomePage() {
       <SpecialOfferBanner />
       <div id="faq-section">
         <FaqSection />
-        <Cta/>
+        {/* <Cta/> */}
       </div>
     </>
   );

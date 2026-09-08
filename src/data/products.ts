@@ -50,7 +50,7 @@ type ProductSeed = {
   category: 'aachar' | 'candy' | 'murabba' | 'chutney';
   categoryLabel: string;
   image: string;
-  images: [string, string, string, string];
+  images: string[];
   featured: boolean;
 };
 
@@ -204,7 +204,7 @@ const seedProducts: ProductSeed[] = [
       '/product/mix-achaar/1.webp',
       '/product/mix-achaar/2.webp',
       '/product/mix-achaar/3.webp',
-      '/product/mix-achaar/4.webp',
+      // '/product/mix-achaar/4.webp',
     ],
     featured: false,
   },
@@ -223,7 +223,7 @@ const seedProducts: ProductSeed[] = [
       '/products/nimbu-achaar/1.webp',
       '/products/nimbu-achaar/2.webp',
       '/products/nimbu-achaar/3.webp',
-      '/products/nimbu-achaar/4.webp',
+      // '/products/nimbu-achaar/4.webp',
     ],
     featured: false,
   },
@@ -559,7 +559,7 @@ const seedProducts: ProductSeed[] = [
 ];
 
 // Helper mapper to output your full Product schema cleanly
-const makeProduct = (p: productseed, index: number): Product => ({
+const makeProduct = (p: ProductSeed, index: number): Product => ({
   id: p.id,
   name: p.name,
   hindiName: p.hindiName ?? '',

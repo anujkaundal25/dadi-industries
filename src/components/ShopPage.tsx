@@ -187,7 +187,7 @@ export const ShopPage: React.FC = () => {
                     }`}
                   >
                     <span className="flex items-center gap-1.5">
-                      <span>{cat.emoji}</span>
+                      {/* <span>{cat.emoji}</span> */}
                       <span>{cat.name}</span>
                     </span>
                     <span>{cat.itemCount}</span>

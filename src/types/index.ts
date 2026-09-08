@@ -45,6 +45,7 @@ export interface Category {
   description: string;
   image: string;
   itemCount: number;
+  emoji: string;
 }
 
 export interface Review {

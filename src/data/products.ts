@@ -8,6 +8,7 @@ export const CATEGORIES: Category[] = [
     description: 'Traditional homemade Indian pickles made with authentic ingredients.',
     image: '/home/aachar-icon.webp',
     itemCount: 16,
+    emoji: '🥭',
   },
   {
     id: 'candy',
@@ -16,6 +17,7 @@ export const CATEGORIES: Category[] = [
     description: 'Homemade fruit and vegetable candies with sweet and tangy flavours.',
     image: '/home/candy-icon.webp',
     itemCount: 8,
+    emoji: '🍬',
   },
   {
     id: 'murabba',
@@ -24,6 +26,7 @@ export const CATEGORIES: Category[] = [
     description: 'Traditional homemade murabba.',
     image: '/home/murabba-icon.webp',
     itemCount: 1,
+    emoji: '🍯',
   },
   {
     id: 'chutney',
@@ -32,6 +35,7 @@ export const CATEGORIES: Category[] = [
     description: 'Homemade chutneys made with traditional recipes.',
     image: '/home/chutney.webp',
     itemCount: 1,
+    emoji: '🥣',
   },
 ];
 

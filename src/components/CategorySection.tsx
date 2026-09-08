@@ -40,7 +40,7 @@ export const CategorySection: React.FC = () => {
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#103C26] via-[#C69D32] to-[#103C26] opacity-0 group-hover:opacity-100 transition-opacity" />
 
               {/* Category image with zoom */}
-              <div className="mb-4 w-24 overflow-hidden transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-10">
+              <div className="mb-4 w-24 overflow-hidden transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-5">
                 <img
                   src={cat.image}
                   alt={cat.name}

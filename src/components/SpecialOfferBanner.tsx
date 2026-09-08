@@ -48,31 +48,10 @@ export const SpecialOfferBanner: React.FC = () => {
 
               <p className="text-sm sm:text-base text-[#C8D6CD] max-w-xl font-sans">
                 Explore our handcrafted achaar collection and bring the true taste of home to your dining table.
-                Enjoy <span className="text-[#E8C86A] font-bold">Free Shipping on all orders above ₹499</span>.
               </p>
 
               {/* Coupon Copy Pill */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20">
-                  <Tag className="w-4 h-4 text-[#E8C86A]" />
-                  <span className="text-xs text-[#C8D6CD]">Use Code:</span>
-                  <span className="font-mono font-bold text-sm tracking-wider text-white">
-                    {couponCode}
-                  </span>
-                  <button
-                    onClick={handleCopyAndApply}
-                    className="ml-2 text-xs font-serif font-bold text-[#E8C86A] hover:text-white transition-colors underline cursor-pointer"
-                  >
-                    {copied || appliedCoupon === couponCode ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-400">
-                        <Check className="w-3.5 h-3.5" /> Applied
-                      </span>
-                    ) : (
-                      'Apply Code'
-                    )}
-                  </button>
-                </div>
-
                 <span className="text-xs text-[#C8D6CD]">
                   (Flat 10% instant discount at checkout)
                 </span>

@@ -16,6 +16,7 @@ import {
   User,
   Sparkles,
 } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 
 export const Header: React.FC = () => {
   const {
@@ -48,19 +49,21 @@ export const Header: React.FC = () => {
       {/* 1. Top Announcement & Support Bar */}
       <div className="bg-[#103C26] text-[#FAF7F0] py-2 px-4 sm:px-8 text-[11px] sm:text-xs font-serif border-b border-[#C69D32]/30">
         <div className="max-w-9xl mx-auto flex items-center justify-between gap-4 px-3 sm:px-6 lg:px-10">
+          {/* Left Section: Delivery Info */}
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 text-[#E8C86A] font-semibold tracking-wider uppercase text-[10px]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Instant Delivery in Dehradun </span>
+              <span>Instant Delivery in Dehradun</span>
             </span>
             <span className="hidden md:inline text-xl font-extrabold bg-gradient-to-b from-[#E8C86A] to-white bg-clip-text text-transparent">
               |
-            </span>{" "}
+            </span>
             <span className="hidden md:inline text-white/80 font-sans text-[14px]">
               Pan-India Delivery Available
             </span>
           </div>
 
+          {/* Right Section: WhatsApp & Socials */}
           <div className="flex items-center gap-4 sm:gap-6 font-sans">
             <button
               onClick={() =>
@@ -70,13 +73,32 @@ export const Header: React.FC = () => {
                   ),
                 )
               }
-              className="flex items-center gap-1 text-[#25D366] hover:text-[#1EBE5D] font-bold transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-white hover:text-[#1EBE5D] font-bold transition-colors cursor-pointer"
               title="Order on WhatsApp"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline text-white">Order: </span>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+              <span className="hidden sm:inline">Order:</span>
               <span className="underline">{WHATSAPP_DISPLAY_PHONE}</span>
             </button>
+
+            <div className="flex items-center gap-2.5">
+              <a
+                href="https://www.instagram.com/dadi.industries/"
+                className="w-8 h-8 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/dadi.industries"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -160,15 +182,15 @@ export const Header: React.FC = () => {
                 onClick={() => openAuthModal("signin")}
                 className="flex items-center gap-1.5 text-[#103C26] hover:text-[#0B2819] py-2 px-2.5 rounded-full font-serif font-bold text-xs transition-all cursor-pointer"
               >
-                <User className="w-4 h-4" />
-                <span>Login</span>
+                <User className="w-7 h-7" />
+                {/* <span>Login</span> */}
               </button>
-              <button
+              {/* <button
                 onClick={() => openAuthModal("signup")}
                 className="bg-[#103C26] hover:bg-[#0B2819] text-[#FAF7F0] py-2 px-3.5 rounded-full font-serif font-bold text-xs transition-all border border-[#C69D32]/50 cursor-pointer shadow-2xs"
               >
                 Sign Up
-              </button>
+              </button> */}
             </div>
 
             {/* Shopping Cart Icon Button */}
@@ -254,7 +276,6 @@ export const Header: React.FC = () => {
                 <span className="text-xs text-[#C69D32]">→</span>
               </button>
             ))}
-
           </div>
 
           <div className="pt-3 border-t border-[#EAE1D0] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5E6E64]">

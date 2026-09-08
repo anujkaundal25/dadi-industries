@@ -331,7 +331,7 @@ export const ProductDetailPage: React.FC = () => {
                   onClick={handleBuyNow}
                   className="w-full bg-[#C69D32] hover:bg-[#D8B244] text-[#0B2819] py-3 px-4 rounded-xl font-serif font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer border border-[#E8C86A] flex items-center justify-center gap-2"
                 >
-                  <span>Instant Checkout</span>
+                  <span>Buy Now</span>
                 </button>
 
                 {/* Direct WhatsApp Order Button */}

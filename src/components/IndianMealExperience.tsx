@@ -14,7 +14,7 @@ export const IndianMealExperience: React.FC = () => {
       pairWith: "Dadi's Special Mango Achaar",
       desc: "Crisp golden aloo or gobhi parathas served with a dollop of fresh white butter and a spoonful of tangy sun-cured mango pickle.",
       image: "/home/indian-tradition-1.webp",
-      categoryId: "mango"
+      categoryId: "aachar"
     },
     {
       name: "Comforting Dal-Chawal",
@@ -22,7 +22,7 @@ export const IndianMealExperience: React.FC = () => {
       pairWith: "Digestive Lemon & Green Chilli Achaar",
       desc: "Steaming hot basmati rice with fragrant arhar dal, desi ghee, roasted papad, and digestive sun-ripened nimbu pickle.",
       image: "/home/indian-tradition-2.webp",
-      categoryId: "lemon"
+      categoryId: "aachar"
     },
     {
       name: "Barish Wali Moong Khichdi",
@@ -30,7 +30,7 @@ export const IndianMealExperience: React.FC = () => {
       pairWith: "Banarasi Stuffed Red Chilli Achaar",
       desc: "Khichdi ke chaar yaar: dahi, papad, ghee aur Dadi ka chatpata hand-stuffed Banarasi Lal Mirch achaar.",
       image: "/home/indian-tradition-3.webp",
-      categoryId: "chilli"
+      categoryId: "aachar"
     },
     {
       name: "Travel & Tea-Time Thepla",
@@ -38,7 +38,7 @@ export const IndianMealExperience: React.FC = () => {
       pairWith: "Sweet & Sour Mango Chunda",
       desc: "Soft Gujarati methi theplas layered with golden jaggery-infused mango chunda — the ultimate nostalgic on-the-go meal.",
       image: "/home/indian-tradition-4.webp",
-      categoryId: "mango"
+      categoryId: "aachar"
     }
   ];
 
@@ -127,6 +127,7 @@ export const IndianMealExperience: React.FC = () => {
                   <button
                     onClick={() => {
                       setSelectedCategory(mealPairings[activeMeal].categoryId);
+                      setCurrentView('shop');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="flex items-center gap-2 text-xs font-serif font-bold text-[#103C26] hover:text-[#C69D32] transition-colors"

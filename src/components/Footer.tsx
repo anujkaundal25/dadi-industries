@@ -44,20 +44,13 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="#facebook" 
-                onClick={(e) => { e.preventDefault(); alert("Follow Dadi Industries on Facebook (Demo)"); }}
+                href="https://www.facebook.com/dadi.industries"
+                target="_blank"
+                rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
-              </a>
-              <a 
-                href="#youtube" 
-                onClick={(e) => { e.preventDefault(); alert("Watch Dadi's heritage recipes on YouTube (Demo)"); }}
-                className="w-9 h-9 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -69,19 +62,29 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm font-sans text-[#C8D6CD]">
               <li>
-                <span>Mango Achaar</span>
+                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Mango Achaar
+                </button>
               </li>
               <li>
-                <span>Lemon Achaar</span>
+                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Lemon Achaar
+                </button>
               </li>
               <li>
-                <span>Banarasi Chilli</span>
+                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Banarasi Chilli
+                </button>
               </li>
               <li>
-                <span>Mixed Heritage</span>
+                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Mixed Heritage
+                </button>
               </li>
               <li>
-                <span>Chutneys & Masala</span>
+                <button onClick={() => { setSelectedCategory('chutney'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Chutneys & Masala
+                </button>
               </li>
             </ul>
           </div>

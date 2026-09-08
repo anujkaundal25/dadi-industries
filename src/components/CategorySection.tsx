@@ -8,7 +8,7 @@ export const CategorySection: React.FC = () => {
 
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
-    // setCurrentView('shop');
+    setCurrentView('shop');
   };
 
   return (
@@ -39,9 +39,13 @@ export const CategorySection: React.FC = () => {
               {/* Subtle top gold accent line on hover */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#103C26] via-[#C69D32] to-[#103C26] opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              {/* Category Emoji with zoom */}
-              <div className="text-4xl sm:text-5xl mb-4 transform group-hover:scale-115 transition-transform duration-300">
-                {cat.emoji}
+              {/* Category image with zoom */}
+              <div className="mb-4 w-24 overflow-hidden transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-10">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               {/* Bold Category Name in Serif */}

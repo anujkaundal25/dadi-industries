@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
 
             {/* Supporting Subtext */}
             <p className="text-[#5E6E64] text-base sm:text-lg max-w-xl leading-relaxed mb-8 font-normal font-sans">
-              Handcrafted with ancestral sun-cured techniques, pure cold-pressed mustard oil, and pristine handpicked spices. The authentic taste of home that stays with you.
+              Homemade with ancestral sun-cured techniques, pure cold-pressed mustard oil, and pristine handpicked spices. The authentic taste of home that stays with you.
             </p>
 
             {/* Action Buttons */}

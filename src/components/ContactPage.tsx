@@ -89,7 +89,7 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ramesh Kumar"
+                      placeholder="e.g. Rohit Chauhan"
                       value={formData.name}
                       onChange={e => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-2.5 bg-[#FAF7F0] rounded-xl border border-[#EAE1D0] text-sm text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="email"
-                      placeholder="you@domain.com"
+                      placeholder="rohits502010@gmail.com"
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-2.5 bg-[#FAF7F0] rounded-xl border border-[#EAE1D0] text-sm text-[#14241B] focus:outline-hidden focus:border-[#103C26]"

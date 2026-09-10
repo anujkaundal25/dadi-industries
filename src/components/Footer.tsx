@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               width={100} />
             </div>
             <p className="text-[16px] text-[#A8BDB1] leading-relaxed max-w-sm font-sans">
-              Handcrafted traditional Indian pickles, sun-cured in earthen martabans using pure cold-pressed mustard oil, aromatic hand-ground spices, and the timeless heritage of grandmother's kitchen.
+              Homemade traditional Indian pickles, sun-cured in earthen martabans using pure cold-pressed mustard oil, aromatic hand-ground spices, and the timeless heritage of grandmother's kitchen.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a 
@@ -63,27 +63,22 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm font-sans text-[#C8D6CD]">
               <li>
                 <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Mango Achaar
+                  Achaar
                 </button>
               </li>
               <li>
-                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Lemon Achaar
+                <button onClick={() => { setSelectedCategory('candy'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Candy
                 </button>
               </li>
               <li>
-                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Banarasi Chilli
-                </button>
-              </li>
-              <li>
-                <button onClick={() => { setSelectedCategory('aachar'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Mixed Heritage
+                <button onClick={() => { setSelectedCategory('murabba'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                  Murabba
                 </button>
               </li>
               <li>
                 <button onClick={() => { setSelectedCategory('chutney'); handlePageNav('shop'); }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
-                  Chutneys & Masala
+                  Chutney
                 </button>
               </li>
             </ul>
@@ -111,9 +106,14 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handlePageNav('shop')} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                <a
+                  href="https://wa.me/c/918630000405"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#E8C86A] transition-colors"
+                >
                   Full Catalog
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -157,21 +157,13 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif font-bold text-base text-[#FAF7F0] tracking-wide">
               Facility Address
             </h4>
-            <div className="space-y-2.5 text-xs text-[#C8D6CD] font-sans">
+            <div className="space-y-2.5 text-sm text-[#C8D6CD] font-sans">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#E8C86A] shrink-0 mt-0.5" />
                 <span>Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001</span>
               </div>
               
-              <div className="flex items-center gap-2">
-                <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0" />
-                <button
-                  onClick={() => openWhatsApp(createWhatsAppInquiryUrl('Namaste Dadi Industries! I want to order traditional pickles directly via WhatsApp.'))}
-                  className="hover:text-[#25D366] transition-colors text-left font-serif font-bold text-[#25D366] cursor-pointer"
-                >
-                  WhatsApp: {WHATSAPP_DISPLAY_PHONE}
-                </button>
-              </div>
+             
 
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#E8C86A] shrink-0" />
@@ -187,13 +179,6 @@ export const Footer: React.FC = () => {
                   <span>Direct WhatsApp Order</span>
                 </button>
 
-                <button
-                  onClick={() => setShowMapModal(true)}
-                  className="inline-flex items-center justify-center gap-1.5 text-xs font-serif font-bold text-[#E8C86A] hover:text-white transition-colors bg-[#103C26] px-3 py-1.5 rounded-lg border border-[#C69D32]/40 cursor-pointer"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>View Map Location</span>
-                </button>
               </div>
             </div>
           </div>

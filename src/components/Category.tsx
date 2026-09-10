@@ -21,7 +21,7 @@ export const Category: React.FC = () => {
       id: 'candy',
       title: 'Himalayan Digestif Candies',
       tagline: 'Pachak & Sweet-Tangy Treats',
-      description: 'Handcrafted digestive candies infused with wild Himalayan herbs, black salt, raw jaggery, and zesty spices to boost gut vitality after heavy meals.',
+      description: 'Homemade digestive candies infused with wild Himalayan herbs, black salt, raw jaggery, and zesty spices to boost gut vitality after heavy meals.',
       image: '/home/candy.webp',
       badge: 'Pure & Wholesome',
       categoryKey: 'candy', // Maps to your ShopContext category
@@ -41,7 +41,7 @@ export const Category: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 bg-[#0B2819]/10 text-[#0B2819] px-3.5 py-1.5 rounded-full text-xs font-serif font-bold uppercase tracking-widest border border-[#C69D32]/30">
             <Sparkles className="w-3.5 h-3.5 text-[#C69D32]" />
-            <span>Handcrafted Collections</span>
+            <span>Homemade Collections</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B2819] tracking-tight">
             Our Ancestral Categories

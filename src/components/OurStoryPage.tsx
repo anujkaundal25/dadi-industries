@@ -245,7 +245,7 @@ export const OurStoryPage: React.FC = () => {
               Dadi Industries vs Mass-Produced Factory Pickles
             </h3>
             <p className="text-xs text-[#5E6E64] font-sans">
-              See why handcrafted traditional pickles taste infinitely richer and support digestive health.
+              See why Homemade traditional pickles taste infinitely richer and support digestive health.
             </p>
           </div>
 
@@ -265,53 +265,81 @@ export const OurStoryPage: React.FC = () => {
               <tbody className="divide-y divide-[#EAE1D0] font-sans">
                 <tr>
                   <td className="p-3.5 font-bold text-[#103C26]">Maturation Process</td>
-                  <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52] flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
-                    <span>21 Days Slow Himalayan Sun-Curing</span>
+                  <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52]">
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
+                      <span>21 Days Slow Himalayan Sun-Curing</span>
+                    </div>
                   </td>
-                  <td className="p-3.5 text-[#5E6E64] flex items-center gap-1.5">
-                    <XCircle className="w-4 h-4 shrink-0 text-red-500" />
-                    <span>2-Hour Steam Cooking in Metal Vats</span>
+                  <td className="p-3.5 text-[#5E6E64]">
+                    <div className="flex items-center gap-1.5">
+                      <XCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>2-Hour Steam Cooking in Metal Vats</span>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td className="p-3.5 font-bold text-[#103C26]">Oil Sourcing</td>
                   <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52]">
-                    100% First-Press Cold-Pressed Kachi Ghani Mustard Oil
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
+                      <span>100% First-Press Cold-Pressed Kachi Ghani Mustard Oil</span>
+                    </div>
                   </td>
                   <td className="p-3.5 text-[#5E6E64]">
-                    Refined Palm Oil & Low-grade Blended Oils
+                    <div className="flex items-start gap-1.5">
+                      <XCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>Refined Palm Oil & Low-grade Blended Oils</span>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td className="p-3.5 font-bold text-[#103C26]">Preservatives</td>
                   <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52]">
-                    Natural Sendha Namak (Rock Salt) & Mustard Oil living barrier
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
+                      <span>Natural Sendha Namak (Rock Salt) & Mustard Oil living barrier</span>
+                    </div>
                   </td>
                   <td className="p-3.5 text-[#5E6E64]">
-                    Glacial Acetic Acid & Sodium Benzoate (INS 211)
+                    <div className="flex items-start gap-1.5">
+                      <XCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>Glacial Acetic Acid & Sodium Benzoate (INS 211)</span>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td className="p-3.5 font-bold text-[#103C26]">Colors & Flavoring</td>
                   <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52]">
-                    Pure Varanasi Turmeric & Hathras Hing (Zero Colors)
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
+                      <span>Pure Varanasi Turmeric & Hathras Hing (Zero Colors)</span>
+                    </div>
                   </td>
                   <td className="p-3.5 text-[#5E6E64]">
-                    Synthetic Tartrazine Yellow & Artificial Acidity Regulators
+                    <div className="flex items-start gap-1.5">
+                      <XCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>Synthetic Tartrazine Yellow & Artificial Acidity Regulators</span>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
                   <td className="p-3.5 font-bold text-[#103C26]">Gut & Digestion</td>
                   <td className="p-3.5 bg-[#FAF7F0] font-semibold text-[#2F7A52]">
-                    Rich in natural gut-friendly friendly enzymes from slow fermentation
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-[#2F7A52]" />
+                      <span>Rich in natural gut-friendly friendly enzymes from slow fermentation</span>
+                    </div>
                   </td>
                   <td className="p-3.5 text-[#5E6E64]">
-                    May trigger heartburn and sharp acidic reflux
+                    <div className="flex items-start gap-1.5">
+                      <XCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>May trigger heartburn and sharp acidic reflux</span>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -338,7 +366,7 @@ export const OurStoryPage: React.FC = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="bg-[#C69D32] hover:bg-[#E8C86A] text-[#0B2819] px-8 py-4 rounded-full font-serif font-bold text-sm sm:text-base transition-all shadow-lg active:scale-95 cursor-pointer flex items-center gap-2"
             >
-              <span>Explore All Handcrafted Pickles</span>
+              <span>Explore All Homemade Pickles</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

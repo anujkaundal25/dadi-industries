@@ -38,7 +38,7 @@ export const SpecialOfferBanner: React.FC = () => {
               </h2>
 
               <p className="text-sm sm:text-base text-[#C8D6CD] max-w-xl font-sans">
-                Explore our handcrafted achaar collection and bring the true taste of home to your dining table.
+                Explore our Homemade achaar collection and bring the true taste of home to your dining table.
               </p>
 
             </div>

@@ -32,7 +32,7 @@ export const Cta: React.FC = () => {
               </h2>
 
               <p className="text-base sm:text-lg text-[#FAF7F0]/90 font-sans max-w-xl leading-relaxed">
-                Handcrafted in small batches using cold-pressed Kachi Ghani mustard oil, sun-dried raw spices, and absolute patience. No artificial preservatives—just pure soul.
+                Homemade in small batches using cold-pressed Kachi Ghani mustard oil, sun-dried raw spices, and absolute patience. No artificial preservatives—just pure soul.
               </p>
 
               {/* Value Props Bullet Points */}

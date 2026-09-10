@@ -1,6 +1,6 @@
 import React from 'react';
 import { useShop } from '../context/ShopContext';
-import { CheckCircle2, AlertCircle, Info, X } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Info, ShoppingBag, X } from 'lucide-react';
 
 export const ToastContainer: React.FC = () => {
   const { toasts, removeToast } = useShop();
@@ -12,7 +12,11 @@ export const ToastContainer: React.FC = () => {
       {toasts.map(toast => (
         <div
           key={toast.id}
-          className="pointer-events-auto flex items-center justify-between gap-3 bg-[#123D24] text-white px-4 py-3.5 rounded-xl shadow-xl border border-[#245C35] transition-all transform translate-y-0 opacity-100 animate-in fade-in slide-in-from-top-3 duration-300"
+          className={`pointer-events-auto flex items-center justify-between gap-3 text-white px-4 py-3.5 rounded-xl shadow-xl border transition-all transform translate-y-0 opacity-100 animate-in fade-in slide-in-from-top-3 duration-300 ${
+            toast.type === 'cart'
+              ? 'bg-[#B9442C] border-[#8F2F20]'
+              : 'bg-[#123D24] border-[#245C35]'
+          }`}
         >
           <div className="flex items-center gap-3">
             {toast.type === 'success' && (
@@ -23,6 +27,9 @@ export const ToastContainer: React.FC = () => {
             )}
             {toast.type === 'info' && (
               <Info className="w-5 h-5 text-emerald-300 shrink-0" />
+            )}
+            {toast.type === 'cart' && (
+              <ShoppingBag className="w-5 h-5 text-white shrink-0" />
             )}
             <p className="text-sm font-medium text-[#FFFDF7] leading-snug">
               {toast.message}

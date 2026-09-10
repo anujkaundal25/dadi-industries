@@ -13,6 +13,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     openProductDetail,
     setQuickViewProduct,
     addToCart,
+    setIsCartOpen,
     wishlist,
     toggleWishlist,
   } = useShop();
@@ -34,6 +35,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart(product, selectedWeight, 1);
+    setIsCartOpen(true);
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1500);
   };

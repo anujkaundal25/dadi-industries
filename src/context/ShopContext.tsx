@@ -3,18 +3,18 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Product, CartItem, OrderDetails, UserProfile } from '../types';
 import { PRODUCTS } from '../data/products';
 
-export type ViewType = 'home' | 'shop' | 'story' | 'why-dadi' | 'contact' | 'product-detail' | 'order-tracking' | 'account';
+export type ViewType = 'home' | 'shop' | 'story' | 'why-dadi' | 'contact' | 'product-detail' | 'order-tracking' | 'account' | 'checkout';
 
 interface ToastMessage {
   id: string;
   message: string;
-  type: 'success' | 'info' | 'warning';
+  type: 'success' | 'info' | 'warning' | 'cart';
 }
 
 const SAMPLE_DEMO_ORDERS: OrderDetails[] = [
   {
     orderId: 'DI-849201',
-    customerName: 'Rohit Sharma',
+    customerName: 'Rohit Chauhan',
     email: 'rohits502010@gmail.com',
     phone: '+91 86300 00405',
     address: 'B-14, Green Valley Enclave, Rajpur Road',
@@ -46,7 +46,7 @@ const SAMPLE_DEMO_ORDERS: OrderDetails[] = [
   },
   {
     orderId: 'DI-912304',
-    customerName: 'Rohit Sharma',
+    customerName: 'Rohit Chauhan',
     email: 'rohits502010@gmail.com',
     phone: '+91 86300 00405',
     address: 'B-14, Green Valley Enclave, Rajpur Road',
@@ -108,7 +108,7 @@ interface ShopContextType {
   totalAmount: number;
   cartItemCount: number;
   toasts: ToastMessage[];
-  showToast: (message: string, type?: 'success' | 'info' | 'warning') => void;
+  showToast: (message: string, type?: 'success' | 'info' | 'warning' | 'cart') => void;
   removeToast: (id: string) => void;
   isCheckoutOpen: boolean;
   setIsCheckoutOpen: (open: boolean) => void;
@@ -140,6 +140,7 @@ const viewToPath = (view: ViewType): string => {
     case 'contact': return '/contact';
     case 'order-tracking': return '/order-tracking';
     case 'account': return '/account';
+    case 'checkout': return '/checkout';
     case 'product-detail': return '/shop';
     default: return '/';
   }
@@ -157,6 +158,7 @@ const pathToView = (pathname: string): { view: ViewType; productId: string | nul
   if (pathname === '/contact') return { view: 'contact', productId: null };
   if (pathname === '/order-tracking') return { view: 'order-tracking', productId: null };
   if (pathname === '/account') return { view: 'account', productId: null };
+  if (pathname === '/checkout') return { view: 'checkout', productId: null };
   return { view: 'home', productId: null };
 };
 
@@ -196,7 +198,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (e) { /* ignore */ }
     return {
       id: 'usr_7719',
-      name: 'Rohit Sharma',
+      name: 'Rohit Chauhan',
       email: 'rohits502010@gmail.com',
       phone: '+91 86300 00405',
       address: 'B-14, Green Valley Enclave, Rajpur Road',
@@ -242,12 +244,20 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
-    if (typeof window === 'undefined') return [PRODUCTS[0].id, PRODUCTS[4].id];
+    const validProductIds = new Set(PRODUCTS.map(product => product.id));
+    const defaultWishlist = [PRODUCTS[0].id, PRODUCTS[4].id];
+
+    if (typeof window === 'undefined') return defaultWishlist;
     try {
       const saved = localStorage.getItem('dadi_wishlist');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const savedIds = JSON.parse(saved);
+        if (Array.isArray(savedIds)) {
+          return savedIds.filter((id): id is string => typeof id === 'string' && validProductIds.has(id));
+        }
+      }
     } catch (e) { /* ignore */ }
-    return [PRODUCTS[0].id, PRODUCTS[4].id];
+    return defaultWishlist;
   });
 
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -284,7 +294,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 
-  const showToast = (message: string, type: 'success' | 'info' | 'warning' = 'success') => {
+  const showToast = (message: string, type: 'success' | 'info' | 'warning' | 'cart' = 'success') => {
     const id = Math.random().toString(36).substring(2, 9);
     setToasts(prev => [...prev, { id, message, type }]);
     setTimeout(() => {
@@ -404,7 +414,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return [...prev, { product, selectedWeight: targetWeight, unitPrice, quantity }];
     });
 
-    showToast(`Added ${quantity}x ${product.name} (${targetWeight}) to cart!`);
+    showToast(`Added ${quantity}x ${product.name} (${targetWeight}) to cart!`, 'cart');
   };
 
   const updateCartQuantity = (productId: string, weight: string, newQuantity: number) => {

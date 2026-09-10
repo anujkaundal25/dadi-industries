@@ -16,7 +16,6 @@ export const CartDrawer: React.FC = () => {
     shippingFee,
     totalAmount,
     freeShippingThreshold,
-    setIsCheckoutOpen,
     setCurrentView
   } = useShop();
 
@@ -27,7 +26,7 @@ export const CartDrawer: React.FC = () => {
 
   const handleCheckoutClick = () => {
     setIsCartOpen(false);
-    setIsCheckoutOpen(true);
+    setCurrentView('checkout');
   };
 
   const handleStartShopping = () => {
@@ -72,7 +71,7 @@ export const CartDrawer: React.FC = () => {
                   {freeShippingDifference > 0 ? (
                     <span className="font-sans">Add <strong>₹{freeShippingDifference}</strong> more for <strong>FREE Delivery</strong></span>
                   ) : (
-                    <span className="text-[#2F7A52] font-serif font-bold">🎉 You unlocked FREE Delivery across India!</span>
+                    <span className="text-[#2F7A52] font-serif font-bold">🎉 You unlocked FREE Delivery across Dehradun!</span>
                   )}
                 </span>
                 <span className="font-serif font-bold">{progressPercent}%</span>

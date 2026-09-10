@@ -30,7 +30,6 @@ export const ProductDetailPage: React.FC = () => {
     addToCart,
     wishlist,
     toggleWishlist,
-    setIsCheckoutOpen,
     showToast
   } = useShop();
 
@@ -55,11 +54,6 @@ export const ProductDetailPage: React.FC = () => {
 
   const handleAddToCart = () => {
     addToCart(product, selectedWeight, quantity);
-  };
-
-  const handleBuyNow = () => {
-    addToCart(product, selectedWeight, quantity);
-    setIsCheckoutOpen(true);
   };
 
   const handleWhatsAppOrder = () => {
@@ -324,17 +318,8 @@ export const ProductDetailPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Action Buttons: Instant Buy & WhatsApp Direct Order */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Buy Now Button */}
-                <button
-                  onClick={handleBuyNow}
-                  className="w-full bg-[#C69D32] hover:bg-[#D8B244] text-[#0B2819] py-3 px-4 rounded-xl font-serif font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer border border-[#E8C86A] flex items-center justify-center gap-2"
-                >
-                  <span>Buy Now</span>
-                </button>
-
-                {/* Direct WhatsApp Order Button */}
+              {/* Direct WhatsApp Order */}
+              <div>
                 <button
                   onClick={handleWhatsAppOrder}
                   className="w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 px-4 rounded-xl font-serif font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer flex items-center justify-center gap-2"

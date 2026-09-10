@@ -9,7 +9,6 @@ import { CartDrawer } from '@/src/components/CartDrawer';
 import { WishlistDrawer } from '@/src/components/WishlistDrawer';
 import { QuickViewModal } from '@/src/components/QuickViewModal';
 import { SearchModal } from '@/src/components/SearchModal';
-import { CheckoutModal } from '@/src/components/CheckoutModal';
 import { AuthModal } from '@/src/components/AuthModal';
 import { ToastContainer } from '@/src/components/Toast';
 import { WhatsAppFloatingWidget } from '@/src/components/FloatingIcon';
@@ -59,7 +58,6 @@ export default function AppShell({ children }: { children: ReactNode }) {
         <WishlistDrawer />
         <QuickViewModal />
         <SearchModal />
-        <CheckoutModal />
         <AuthModal />
         <ToastContainer />
         <WhatsAppFloatingWidget />

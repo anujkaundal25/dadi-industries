@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useShop } from '../context/ShopContext';
-import { X, ShieldCheck, Truck, CreditCard, QrCode, Banknote, Lock, Check } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, CreditCard, QrCode, Banknote, Lock } from 'lucide-react';
 
 export const CheckoutModal: React.FC = () => {
   const {
-    isCheckoutOpen,
-    setIsCheckoutOpen,
     cart,
     subtotal,
     discountAmount,
@@ -15,17 +13,15 @@ export const CheckoutModal: React.FC = () => {
     showToast
   } = useShop();
 
-  const [customerName, setCustomerName] = useState('Rahul Sharma');
-  const [phone, setPhone] = useState('8630000405');
-  const [email, setEmail] = useState('rahul.sharma@example.com');
-  const [address, setAddress] = useState('Flat 402, Green Avenue, Rajpur Road');
-  const [city, setCity] = useState('Dehradun');
-  const [state, setState] = useState('Uttarakhand');
-  const [pincode, setPincode] = useState('248001');
+  const [customerName, setCustomerName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [pincode, setPincode] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'upi' | 'card' | 'cod' | 'netbanking'>('upi');
   const [isProcessing, setIsProcessing] = useState(false);
-
-  if (!isCheckoutOpen) return null;
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,13 +49,9 @@ export const CheckoutModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
-      <div 
-        onClick={() => !isProcessing && setIsCheckoutOpen(false)}
-        className="fixed inset-0 bg-[#0B2819]/70 backdrop-blur-xs transition-opacity"
-      />
-
-      <div className="relative bg-[#FAF7F0] rounded-3xl max-w-3xl w-full p-6 sm:p-8 overflow-hidden shadow-2xl border border-[#EAE1D0] z-10 my-8 animate-in fade-in zoom-in duration-200">
+    <div className="bg-[#FAF7F0] min-h-screen py-8 sm:py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#FAF7F0] rounded-3xl w-full p-6 sm:p-8 shadow-xl border border-[#EAE1D0]">
         
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#EAE1D0] mb-6">
@@ -76,11 +68,13 @@ export const CheckoutModal: React.FC = () => {
           </div>
 
           <button
-            onClick={() => setIsCheckoutOpen(false)}
+            type="button"
+            onClick={() => window.history.back()}
             disabled={isProcessing}
-            className="p-2 rounded-full text-[#5E6E64] hover:text-[#103C26] hover:bg-white cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-serif font-bold text-[#5E6E64] hover:text-[#103C26] cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4" />
+            Back
           </button>
         </div>
 
@@ -104,6 +98,7 @@ export const CheckoutModal: React.FC = () => {
                     required
                     value={customerName}
                     onChange={e => setCustomerName(e.target.value)}
+                    placeholder="Rohit Chauhan"
                     className="w-full px-3.5 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                   />
                 </div>
@@ -117,6 +112,7 @@ export const CheckoutModal: React.FC = () => {
                     required
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
+                    placeholder="Enter mobile number"
                     className="w-full px-3.5 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                   />
                 </div>
@@ -131,6 +127,7 @@ export const CheckoutModal: React.FC = () => {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
+                  placeholder="name@example.com"
                   className="w-full px-3.5 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                 />
               </div>
@@ -144,6 +141,7 @@ export const CheckoutModal: React.FC = () => {
                   required
                   value={address}
                   onChange={e => setAddress(e.target.value)}
+                  placeholder="Flat / House number, street and landmark"
                   className="w-full px-3.5 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                 />
               </div>
@@ -158,6 +156,7 @@ export const CheckoutModal: React.FC = () => {
                     required
                     value={city}
                     onChange={e => setCity(e.target.value)}
+                    placeholder="City"
                     className="w-full px-3 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                   />
                 </div>
@@ -171,6 +170,7 @@ export const CheckoutModal: React.FC = () => {
                     required
                     value={state}
                     onChange={e => setState(e.target.value)}
+                    placeholder="State"
                     className="w-full px-3 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                   />
                 </div>
@@ -184,6 +184,7 @@ export const CheckoutModal: React.FC = () => {
                     required
                     value={pincode}
                     onChange={e => setPincode(e.target.value)}
+                    placeholder="Pincode"
                     className="w-full px-3 py-2 text-xs bg-white rounded-xl border border-[#EAE1D0] text-[#14241B] focus:outline-hidden focus:border-[#103C26]"
                   />
                 </div>
@@ -301,6 +302,7 @@ export const CheckoutModal: React.FC = () => {
           </div>
         </form>
 
+      </div>
       </div>
     </div>
   );

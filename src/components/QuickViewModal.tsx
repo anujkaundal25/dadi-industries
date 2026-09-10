@@ -9,6 +9,7 @@ export const QuickViewModal: React.FC = () => {
     quickViewProduct,
     setQuickViewProduct,
     addToCart,
+    setIsCartOpen,
     openProductDetail
   } = useShop();
 
@@ -25,6 +26,7 @@ export const QuickViewModal: React.FC = () => {
   const handleAddToCart = () => {
     addToCart(quickViewProduct, selectedWeight, quantity);
     setQuickViewProduct(null);
+    setIsCartOpen(true);
   };
 
   return (

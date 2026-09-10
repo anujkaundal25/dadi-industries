@@ -34,7 +34,7 @@ export const WishlistDrawer: React.FC = () => {
               <Heart className="w-5 h-5 text-[#B9442C] fill-current" />
               <h2 className="font-serif font-bold text-xl text-[#103C26]">Saved Flavours</h2>
               <span className="bg-[#B9442C] text-white text-xs font-serif font-bold px-2.5 py-0.5 rounded-full">
-                {wishlist.length}
+                {wishlistedProducts.length}
               </span>
             </div>
             <button

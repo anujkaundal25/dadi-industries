@@ -55,7 +55,7 @@ export const AuthModal: React.FC = () => {
       setSignInIdentifier('rohits502010@gmail.com');
       setSignInPassword('dadi12345');
     } else {
-      setName('Rohit Sharma');
+      setName('Rohit Chauhan');
       setEmail('rohits502010@gmail.com');
       setPhone('+91 86300 00405');
       setAddress('B-14, Green Valley Enclave, Rajpur Road');
@@ -125,20 +125,7 @@ export const AuthModal: React.FC = () => {
         {/* Scrollable Form Body */}
         <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow">
           
-          {/* Quick Demo Pre-fill Shortcut */}
-          <div className="flex items-center justify-between bg-[#F3ECE0] px-3.5 py-2 rounded-xl border border-[#EAE1D0] text-xs">
-            <span className="text-[#5E6E64] font-medium flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#C69D32]" />
-              Need to test quickly?
-            </span>
-            <button
-              type="button"
-              onClick={handleQuickDemoFill}
-              className="text-[#103C26] font-serif font-bold underline hover:text-[#0B2819] cursor-pointer"
-            >
-              Auto-fill Demo Details
-            </button>
-          </div>
+          
 
           {mode === 'signin' ? (
             /* Sign In Form */
@@ -216,7 +203,7 @@ export const AuthModal: React.FC = () => {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Rohit Sharma"
+                    placeholder="e.g. Rohit Chauhan"
                     className="w-full bg-white border border-[#EAE1D0] rounded-xl pl-9 pr-3 py-1.5 text-xs text-[#103C26] focus:outline-none focus:border-[#C69D32]"
                   />
                 </div>

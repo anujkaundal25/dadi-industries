@@ -75,7 +75,7 @@ export const ShopPage: React.FC = () => {
             <span>Dadi's Online Pantry</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#103C26] mt-1 tracking-tight">
-            Traditional Pickles & Handcrafted Chutneys
+            Traditional Pickles & Homemade Chutneys
           </h1>
           <p className="mt-2 text-sm sm:text-base text-[#5E6E64] max-w-2xl font-sans">
             Browse our entire collection of sun-cured achaar, stone-ground chutneys and handmade spice blends. 

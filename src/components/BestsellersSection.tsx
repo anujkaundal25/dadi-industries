@@ -30,7 +30,7 @@ export const BestsellersSection: React.FC = () => {
               Dadi Ke Sabse Pasandida Achaar
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[#5E6E64] max-w-xl font-sans">
-              Handcrafted in small batches with cold-pressed oils, pure rock salt, and spices that evoke the true taste of home.
+              Homemade in small batches with cold-pressed oils, pure rock salt, and spices that evoke the true taste of home.
             </p>
           </div>
 

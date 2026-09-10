@@ -17,7 +17,7 @@ export const TrustStatsStrip: React.FC = () => {
     },
     {
       icon: Utensils,
-      value: "50+",
+      value: "20+",
       label: "Flavour Varieties",
       desc: "Pickles, chutneys & aromatic masalas"
     },

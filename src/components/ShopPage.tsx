@@ -196,27 +196,7 @@ export const ShopPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Spice Level Filter */}
-            <div className="bg-white p-5 rounded-2xl border border-[#EAE1D0]">
-              <h3 className="font-serif font-bold text-base text-[#103C26] mb-3">
-                Spice Level (Teekha-Pan)
-              </h3>
-              <div className="flex flex-wrap gap-1.5">
-                {['all', 'Mild', 'Medium', 'Teekha (Spicy)', 'Extra Teekha'].map(lvl => (
-                  <button
-                    key={lvl}
-                    onClick={() => setSpiceFilter(lvl)}
-                    className={`text-xs font-serif font-semibold px-3 py-1.5 rounded-lg border transition-colors cursor-pointer ${
-                      spiceFilter === lvl
-                        ? 'bg-[#103C26] text-[#FAF7F0] border-[#103C26]'
-                        : 'bg-[#FAF7F0] text-[#14241B] border-[#EAE1D0] hover:border-[#C69D32]'
-                    }`}
-                  >
-                    {lvl === 'all' ? 'Any Spice' : lvl}
-                  </button>
-                ))}
-              </div>
-            </div>
+      
 
             {/* Price Slider Filter */}
             <div className="bg-white p-5 rounded-2xl border border-[#EAE1D0]">

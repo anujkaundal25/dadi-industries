@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://www.facebook.com/dadi.industries"
+                href="https://www.facebook.com/people/Dadi-Industries/61594086487390/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"

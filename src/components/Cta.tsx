@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useShop } from '../context/ShopContext';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { createWhatsAppInquiryUrl, openWhatsApp } from '../utils/whatsapp';
@@ -6,14 +6,6 @@ import { Sparkles, ArrowRight, CheckCircle2, Gift } from 'lucide-react';
 
 export const Cta: React.FC = () => {
   const { setCurrentView, setSelectedCategory } = useShop();
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyCoupon = () => {
-    navigator.clipboard.writeText('DESISWAAD');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-  };
-
   return (
     <section className="w-full py-12 sm:py-16 bg-[#FAF7F0] px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -71,28 +63,14 @@ export const Cta: React.FC = () => {
               <div className="space-y-3 text-center sm:text-left">
                 <div className="flex items-center justify-center sm:justify-start gap-2 text-[#E8C86A]">
                   <Gift className="w-5 h-5" />
-                  <span className="font-serif font-bold text-xs sm:text-sm uppercase tracking-wider">Special Welcome Perk</span>
+                  <span className="font-serif font-bold text-xs sm:text-sm uppercase tracking-wider">A Taste Worth Sharing</span>
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#FAF7F0]">
-                  Get Flat 10% Off Your First Order
+                  Taste the Difference in Every Jar
                 </h3>
                 <p className="text-xs sm:text-sm text-[#FAF7F0]/80">
-                  Click the coupon code below to copy, or order instantly through WhatsApp with our heritage specialists.
+                  Explore the handmade collection or order instantly through WhatsApp with our heritage specialists.
                 </p>
-              </div>
-
-              {/* Interactive Coupon Box */}
-              <div 
-                onClick={handleCopyCoupon}
-                className="group relative bg-[#0B2819] hover:bg-[#103C26] border border-[#C69D32]/60 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all shadow-sm"
-              >
-                <div>
-                  <span className="block text-[10px] uppercase tracking-widest text-[#E8C86A] font-serif">Coupon Code</span>
-                  <span className="font-mono text-lg font-bold tracking-wider text-[#FAF7F0]">DESISWAAD</span>
-                </div>
-                <span className="text-xs font-serif font-bold bg-[#C69D32] text-[#0B2819] px-3 py-1.5 rounded-lg group-hover:bg-[#E8C86A] transition-colors">
-                  {copied ? 'Copied! ✓' : 'Copy Code'}
-                </span>
               </div>
 
               {/* Action Buttons */}
@@ -109,7 +87,7 @@ export const Cta: React.FC = () => {
                 </button>
 
                 <button
-                  onClick={() => openWhatsApp(createWhatsAppInquiryUrl('Namaste Dadi Industries! I want to order traditional pickles using coupon DESISWAAD.'))}
+                  onClick={() => openWhatsApp(createWhatsAppInquiryUrl('Namaste Dadi Industries! I want to order traditional pickles.'))}
                   className="w-full bg-white/15 hover:bg-white/25 text-[#FAF7F0] backdrop-blur-md border border-white/30 py-4 rounded-full font-serif font-bold text-sm sm:text-base transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2.5"
                 >
                   <WhatsAppIcon className="w-5 h-5" />

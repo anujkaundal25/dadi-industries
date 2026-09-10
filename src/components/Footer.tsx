@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="https://www.facebook.com/dadi.industries"
+                href="https://www.facebook.com/people/Dadi-Industries/61594086487390/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-[#103C26] hover:bg-[#C69D32] hover:text-[#0B2819] text-[#FAF7F0] flex items-center justify-center transition-colors border border-[#C69D32]/30"
@@ -125,34 +125,29 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm font-sans">
               <li>
-                <span className="hover:text-[#E8C86A] cursor-pointer" onClick={() => handlePageNav('contact')}>
+                <a href="/shipping-delivery" className="hover:text-[#E8C86A] transition-colors">
                   Shipping & Delivery
-                </span>
+                </a>
               </li>
               <li>
-                <span className="hover:text-[#E8C86A] cursor-pointer" onClick={() => handlePageNav('contact')}>
+                <a href="/returns-guarantee" className="hover:text-[#E8C86A] transition-colors">
                   Returns & Guarantee
-                </span>
+                </a>
               </li>
               <li>
-                <button onClick={() => {
-                  handlePageNav('home');
-                  setTimeout(() => {
-                    document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }} className="hover:text-[#E8C86A] transition-colors cursor-pointer">
+                <a href="/faqs-tips" className="hover:text-[#E8C86A] transition-colors">
                   FAQs & Tips
-                </button>
+                </a>
               </li>
               <li>
-                <span className="hover:text-[#E8C86A] cursor-pointer" onClick={() => handlePageNav('contact')}>
+                <a href="/privacy-policy" className="hover:text-[#E8C86A] transition-colors">
                   Privacy Policy
-                </span>
+                </a>
               </li>
               <li>
-                <span className="hover:text-[#E8C86A] cursor-pointer" onClick={() => handlePageNav('contact')}>
+                <a href="/terms-of-service" className="hover:text-[#E8C86A] transition-colors">
                   Terms of Service
-                </span>
+                </a>
               </li>
             </ul>
           </div>

@@ -37,8 +37,7 @@ export function createWhatsAppCartOrderUrl(
   subtotal: number,
   discount: number,
   shipping: number,
-  total: number,
-  appliedCoupon?: string | null
+  total: number
 ): string {
   const itemsList = items
     .map((item, idx) => {
@@ -47,15 +46,15 @@ export function createWhatsAppCartOrderUrl(
     })
     .join('\n');
 
-  const couponLine = appliedCoupon && discount > 0 ? `• Coupon Discount (${appliedCoupon}): -₹${discount}\n` : '';
-  const shippingLine = shipping === 0 ? '• Shipping: FREE (Promo Unlocked)' : `• Shipping: ₹${shipping}`;
+  const discountLine = discount > 0 ? `• Discount: -₹${discount}\n` : '';
+  const shippingLine = shipping === 0 ? '• Shipping: FREE' : `• Shipping: ₹${shipping}`;
 
   const message = `*Namaste Dadi Industries!* 🫙\n\n` +
     `I would like to place an *Order for My Cart Items*:\n\n` +
     `${itemsList}\n\n` +
     `🧾 *Summary:*\n` +
     `• Subtotal: ₹${subtotal}\n` +
-    `${couponLine}` +
+    `${discountLine}` +
     `${shippingLine}\n` +
     `*⭐ Total Payable: ₹${total}*\n\n` +
     `Please confirm the order, share UPI payment details, and dispatch timeframe. Thank you!`;

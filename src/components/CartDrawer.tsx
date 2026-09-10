@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useShop } from '../context/ShopContext';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { createWhatsAppCartOrderUrl, openWhatsApp } from '../utils/whatsapp';
-import { X, Trash2, Plus, Minus, ArrowRight, Tag, ShoppingBag, Truck } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ArrowRight, ShoppingBag, Truck } from 'lucide-react';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -15,28 +15,15 @@ export const CartDrawer: React.FC = () => {
     discountAmount,
     shippingFee,
     totalAmount,
-    appliedCoupon,
-    applyCoupon,
-    removeCoupon,
     freeShippingThreshold,
     setIsCheckoutOpen,
     setCurrentView
   } = useShop();
 
-  const [couponInput, setCouponInput] = useState('');
-
   if (!isCartOpen) return null;
 
   const freeShippingDifference = freeShippingThreshold - subtotal;
   const progressPercent = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));
-
-  const handleApplyCoupon = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (couponInput.trim()) {
-      applyCoupon(couponInput);
-      setCouponInput('');
-    }
-  };
 
   const handleCheckoutClick = () => {
     setIsCartOpen(false);
@@ -180,39 +167,6 @@ export const CartDrawer: React.FC = () => {
           {cart.length > 0 && (
             <div className="p-5 sm:p-6 bg-white border-t border-[#EAE1D0] space-y-4">
               
-              {/* Coupon Form */}
-              <div>
-                {appliedCoupon ? (
-                  <div className="flex items-center justify-between bg-[#103C26]/10 px-3 py-2 rounded-xl text-xs border border-[#103C26]/20">
-                    <span className="flex items-center gap-1.5 text-[#103C26] font-serif font-bold">
-                      <Tag className="w-3.5 h-3.5 text-[#C69D32]" /> Coupon "{appliedCoupon}" applied
-                    </span>
-                    <button
-                      onClick={removeCoupon}
-                      className="text-[#B9442C] font-semibold hover:underline cursor-pointer"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleApplyCoupon} className="flex gap-2">
-                    <input
-                      type="text"
-                      placeholder="Coupon (try DESISWAAD)"
-                      value={couponInput}
-                      onChange={e => setCouponInput(e.target.value)}
-                      className="flex-1 px-3 py-2 text-xs bg-[#FAF7F0] rounded-xl border border-[#EAE1D0] text-[#14241B] uppercase tracking-wider focus:outline-hidden focus:border-[#103C26]"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-[#103C26] text-[#FAF7F0] px-4 py-2 rounded-xl text-xs font-serif font-bold hover:bg-[#0B2819] cursor-pointer"
-                    >
-                      Apply
-                    </button>
-                  </form>
-                )}
-              </div>
-
               {/* Price Breakdown */}
               <div className="space-y-1.5 text-xs font-sans">
                 <div className="flex justify-between text-[#5E6E64]">
@@ -225,12 +179,12 @@ export const CartDrawer: React.FC = () => {
                     <span>- ₹{discountAmount}</span>
                   </div>
                 )}
-                <div className="flex justify-between text-[#5E6E64]">
+                {/* <div className="flex justify-between text-[#5E6E64]">
                   <span>Courier Shipping</span>
                   <span className="font-semibold text-[#14241B]">
                     {shippingFee === 0 ? 'FREE' : `₹${shippingFee}`}
                   </span>
-                </div>
+                </div> */}
                 <div className="flex justify-between text-sm font-serif font-bold text-[#103C26] pt-2 border-t border-[#EAE1D0]">
                   <span>Total Amount</span>
                   <span className="font-serif text-lg text-[#103C26]">₹{totalAmount}</span>
@@ -257,7 +211,6 @@ export const CartDrawer: React.FC = () => {
                       discountAmount,
                       shippingFee,
                       totalAmount,
-                      appliedCoupon
                     );
                     openWhatsApp(url);
                   }}

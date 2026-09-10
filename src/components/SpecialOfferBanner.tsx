@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useShop } from '../context/ShopContext';
 import { ArrowRight, Tag, Check, Sparkles } from 'lucide-react';
 
 export const SpecialOfferBanner: React.FC = () => {
-  const { setCurrentView, setSelectedCategory, applyCoupon, appliedCoupon } = useShop();
-  const [copied, setCopied] = useState(false);
-
-  const couponCode = 'DESISWAAD';
-
-  const handleCopyAndApply = () => {
-    applyCoupon(couponCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const { setCurrentView, setSelectedCategory } = useShop();
 
   const handleShopNow = () => {
     setSelectedCategory('all');
@@ -50,12 +41,6 @@ export const SpecialOfferBanner: React.FC = () => {
                 Explore our handcrafted achaar collection and bring the true taste of home to your dining table.
               </p>
 
-              {/* Coupon Copy Pill */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <span className="text-xs text-[#C8D6CD]">
-                  (Flat 10% instant discount at checkout)
-                </span>
-              </div>
             </div>
 
             {/* Right Action Button */}

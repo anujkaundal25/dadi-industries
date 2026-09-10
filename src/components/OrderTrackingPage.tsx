@@ -133,7 +133,7 @@ export const OrderTrackingPage: React.FC = () => {
               </div>
               {lastOrder.discount > 0 && (
                 <div className="flex justify-between text-[#2F7A52] font-semibold">
-                  <span>Coupon Savings</span>
+                  <span>Savings</span>
                   <span>- ₹{lastOrder.discount}</span>
                 </div>
               )}

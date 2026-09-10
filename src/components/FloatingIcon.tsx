@@ -13,7 +13,7 @@ import {
 import { X, Send, ShoppingBag, Sparkles, MessageCircle, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export const WhatsAppFloatingWidget: React.FC = () => {
-  const { cart, subtotal, discountAmount, shippingFee, totalAmount, appliedCoupon } = useShop();
+  const { cart, subtotal, discountAmount, shippingFee, totalAmount } = useShop();
   const [isOpen, setIsOpen] = useState(false);
   const [customMessage, setCustomMessage] = useState('');
   const [selectedQuickProduct, setSelectedQuickProduct] = useState<string>('mango-pickle-special');
@@ -28,7 +28,6 @@ export const WhatsAppFloatingWidget: React.FC = () => {
       discountAmount,
       shippingFee,
       totalAmount,
-      appliedCoupon
     );
     openWhatsApp(url);
     setIsOpen(false);

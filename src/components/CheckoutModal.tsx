@@ -11,7 +11,6 @@ export const CheckoutModal: React.FC = () => {
     discountAmount,
     shippingFee,
     totalAmount,
-    appliedCoupon,
     placeOrder,
     showToast
   } = useShop();
@@ -265,7 +264,7 @@ export const CheckoutModal: React.FC = () => {
                   </div>
                   {discountAmount > 0 && (
                     <div className="flex justify-between text-[#2F7A52] font-semibold">
-                      <span>Promo Discount</span>
+                      <span>Discount</span>
                       <span>- ₹{discountAmount}</span>
                     </div>
                   )}

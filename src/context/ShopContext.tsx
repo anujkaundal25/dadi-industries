@@ -102,10 +102,6 @@ interface ShopContextType {
   setSearchQuery: (query: string) => void;
   selectedCategory: string;
   setSelectedCategory: (cat: string) => void;
-  appliedCoupon: string;
-  applyCoupon: (code: string) => boolean;
-  removeCoupon: () => void;
-  discountPercentage: number;
   subtotal: number;
   shippingFee: number;
   discountAmount: number;
@@ -254,7 +250,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return [PRODUCTS[0].id, PRODUCTS[4].id];
   });
 
-  const [appliedCoupon, setAppliedCoupon] = useState<string>('DESISWAAD');
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [lastOrder, setLastOrder] = useState<OrderDetails | null>(() => {
     return userOrders.length > 0 ? userOrders[0] : null;
@@ -449,38 +444,12 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
   };
 
-  const applyCoupon = (code: string): boolean => {
-    const normalized = code.trim().toUpperCase();
-    if (normalized === 'DESISWAAD' || normalized === 'DADI10' || normalized === 'HOMEMADE') {
-      setAppliedCoupon(normalized);
-      showToast(`Coupon "${normalized}" applied! 10% savings unlocked.`, 'success');
-      return true;
-    } else if (normalized === 'FREESHIP') {
-      setAppliedCoupon(normalized);
-      showToast('Free shipping coupon applied!', 'success');
-      return true;
-    } else {
-      showToast('Invalid promo code. Try "DESISWAAD" or "FREESHIP"', 'warning');
-      return false;
-    }
-  };
-
-  const removeCoupon = () => {
-    setAppliedCoupon('');
-    showToast('Coupon removed', 'info');
-  };
-
   const freeShippingThreshold = 499;
   const subtotal = cart.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  let discountPercentage = 0;
-  if (appliedCoupon === 'DESISWAAD' || appliedCoupon === 'DADI10' || appliedCoupon === 'HOMEMADE') {
-    discountPercentage = 0.10;
-  }
-
-  const discountAmount = Math.round(subtotal * discountPercentage);
-  const shippingFee = (subtotal >= freeShippingThreshold || appliedCoupon === 'FREESHIP' || subtotal === 0) ? 0 : 49;
+  const discountAmount = 0;
+  const shippingFee = (subtotal >= freeShippingThreshold || subtotal === 0) ? 0 : 49;
   const totalAmount = Math.max(0, subtotal - discountAmount + shippingFee);
 
   const placeOrder = (details: Omit<OrderDetails, 'orderId' | 'items' | 'subtotal' | 'discount' | 'shipping' | 'total' | 'orderDate' | 'estimatedDelivery'>): OrderDetails => {
@@ -537,10 +506,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSearchQuery,
         selectedCategory,
         setSelectedCategory,
-        appliedCoupon,
-        applyCoupon,
-        removeCoupon,
-        discountPercentage,
         subtotal,
         shippingFee,
         discountAmount,

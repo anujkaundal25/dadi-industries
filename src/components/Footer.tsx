@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
 
   const address = "Harbazwala, near Kanti Mart, Sainik Colony, Dehradun 248001";
 
-  const handlePageNav = (view: 'home' | 'shop' | 'story' | 'why-dadi' | 'contact') => {
+  const handlePageNav = (view: 'home' | 'shop' | 'storye' | 'why-dadi' | 'contact') => {
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
